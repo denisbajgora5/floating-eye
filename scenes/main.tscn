@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://cbwd14052lpbg"]
 
+[ext_resource type="PackedScene" uid="uid://byersijr0cnkn" path="res://scenes/floating_eye.tscn" id="1_o5qli"]
+
 [node name="main" type="Node3D" unique_id=308340806]
+
+[node name="floating_eye" parent="." unique_id=1348206956 instance=ExtResource("1_o5qli")]
