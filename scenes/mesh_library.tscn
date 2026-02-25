@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://clvbfnmpb1qwh" path="res://scenes/blocks/floor.tscn" id="1_06rdc"]
 [ext_resource type="PackedScene" uid="uid://b1pylniofchva" path="res://scenes/trees/tree_a.tscn" id="2_4w4gy"]
+[ext_resource type="PackedScene" uid="uid://cphxj35hn6psg" path="res://scenes/blocks/sand_a.tscn" id="3_djgao"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
 [node name="floor" parent="." unique_id=1855583976 instance=ExtResource("1_06rdc")]
 
 [node name="TreeA" parent="." unique_id=163009003 instance=ExtResource("2_4w4gy")]
+
+[node name="sand_A" parent="." unique_id=1244884693 instance=ExtResource("3_djgao")]
