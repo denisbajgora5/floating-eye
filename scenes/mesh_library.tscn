@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://42hkgy7fe176"]
 
 [ext_resource type="PackedScene" uid="uid://clvbfnmpb1qwh" path="res://scenes/blocks/floor.tscn" id="1_06rdc"]
+[ext_resource type="PackedScene" uid="uid://b1pylniofchva" path="res://scenes/trees/tree_a.tscn" id="2_4w4gy"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
 [node name="floor" parent="." unique_id=1855583976 instance=ExtResource("1_06rdc")]
+
+[node name="TreeA" parent="." unique_id=163009003 instance=ExtResource("2_4w4gy")]
