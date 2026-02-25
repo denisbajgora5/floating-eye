@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d06xhosuqy5x2"
-path="res://.godot/imported/eye_background.wav-af30d4e968a7731801129b4e747e0ee9.sample"
+path="res://.godot/imported/eye_background.wav-f42b964ace0cc9cb18a643a22f0bacf6.sample"
 
 [deps]
 
-source_file="res://assets/models/music/eye_background.wav"
-dest_files=["res://.godot/imported/eye_background.wav-af30d4e968a7731801129b4e747e0ee9.sample"]
+source_file="res://assets/music/eye_background.wav"
+dest_files=["res://.godot/imported/eye_background.wav-f42b964ace0cc9cb18a643a22f0bacf6.sample"]
 
 [params]
 
