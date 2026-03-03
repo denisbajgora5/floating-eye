@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://byersijr0cnkn"]
 
 [ext_resource type="Texture2D" uid="uid://c6mxb1ef40wul" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_0.png" id="1_kwshu"]
+[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scenes/eye_kraken_1.gd" id="1_nm0is"]
 [ext_resource type="Texture2D" uid="uid://1lirfuljihcw" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_1.png" id="2_r231x"]
 [ext_resource type="Texture2D" uid="uid://dirlsaq8s74g2" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_3.png" id="3_8tm60"]
+[ext_resource type="Script" uid="uid://oy4elna3q7n1" path="res://scenes/seek.gd" id="4_8tm60"]
 [ext_resource type="AudioStream" uid="uid://d06xhosuqy5x2" path="res://assets/music/eye_background.wav" id="4_r231x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0stm"]
@@ -110,6 +112,7 @@ transform = Transform3D(0.13614902, 0, 0, 0, 3.0231155e-17, 0.13614902, 0, -0.13
 transform = Transform3D(1, 0, 0, 0, 2.220446e-16, -1, 0, 1, 2.220446e-16, 0, 0, 0)
 
 [node name="eye-kraken_1" type="CharacterBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode" unique_id=1482778280]
+script = ExtResource("1_nm0is")
 
 [node name="Object_4" type="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=706394656]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -123,6 +126,10 @@ mesh = SubResource("ArrayMesh_uyyid")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1770037132]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_r231x")
+
+[node name="Seek" type="Node" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=875401923 node_paths=PackedStringArray("target")]
+script = ExtResource("4_8tm60")
+target = NodePath("../../../../../Path3D/PathFollow3D")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
