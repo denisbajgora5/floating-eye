@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c6mxb1ef40wul" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_0.png" id="1_kwshu"]
 [ext_resource type="Texture2D" uid="uid://1lirfuljihcw" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_1.png" id="2_r231x"]
 [ext_resource type="Texture2D" uid="uid://dirlsaq8s74g2" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_3.png" id="3_8tm60"]
+[ext_resource type="AudioStream" uid="uid://d06xhosuqy5x2" path="res://assets/music/eye_background.wav" id="4_r231x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0stm"]
 resource_name = "KRAKEN-EYE"
@@ -108,3 +109,8 @@ mesh = SubResource("ArrayMesh_qk8gs")
 
 [node name="Object_6" type="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/irys_kraken_0" unique_id=1634214854]
 mesh = SubResource("ArrayMesh_uyyid")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
+stream = ExtResource("4_r231x")
+autoplay = true
+bus = &"SFX"
