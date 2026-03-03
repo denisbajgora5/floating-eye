@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://clvbfnmpb1qwh" path="res://scenes/blocks/floor.tscn" id="1_06rdc"]
 [ext_resource type="PackedScene" uid="uid://b1pylniofchva" path="res://scenes/trees/tree_a.tscn" id="2_4w4gy"]
 [ext_resource type="PackedScene" uid="uid://cphxj35hn6psg" path="res://scenes/blocks/sand_a.tscn" id="3_djgao"]
+[ext_resource type="PackedScene" uid="uid://byv6ttt6d3o5u" path="res://scenes/trees/tree_b.tscn" id="4_s3a7k"]
+[ext_resource type="PackedScene" uid="uid://b8adntpb76pg3" path="res://scenes/trees/tree_c.tscn" id="5_lcowe"]
+[ext_resource type="PackedScene" uid="uid://io5e67m04i8c" path="res://scenes/trees/tree_d.tscn" id="6_k5xwo"]
+[ext_resource type="PackedScene" uid="uid://bu6coewlv7psf" path="res://scenes/trees/tree_e.tscn" id="7_tye7d"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -11,3 +15,11 @@
 [node name="TreeA" parent="." unique_id=163009003 instance=ExtResource("2_4w4gy")]
 
 [node name="sand_A" parent="." unique_id=1244884693 instance=ExtResource("3_djgao")]
+
+[node name="TreeB" parent="." unique_id=1566322113 instance=ExtResource("4_s3a7k")]
+
+[node name="TreeC" parent="." unique_id=1455185806 instance=ExtResource("5_lcowe")]
+
+[node name="TreeD" parent="." unique_id=1245507968 instance=ExtResource("6_k5xwo")]
+
+[node name="TreeE" parent="." unique_id=426874144 instance=ExtResource("7_tye7d")]
