@@ -90,7 +90,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hotru")
 
-[node name="floating_eye" type="Node3D" unique_id=1348206956]
+[sub_resource type="SphereShape3D" id="SphereShape3D_r231x"]
+
+[sub_resource type="Curve3D" id="Curve3D_nm0is"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0036283, 1.0345718, 2.2485116, 0, 0, 0, 0, 0, 0, -3.3496017, 0.97155225, -2.8704953, 0, 0, 0, 0, 0, 0, -3.4470136, -0.21856141, -5.051739, 0, 0, 0, 0, 0, 0, -1.644609, 0.10404563, -2.291436, 0, 0, 0, 0, 0, 0, -0.3100922, -1.0634947, -4.54886, 0, 0, 0, 0, 0, 0, -0.8047333, 0.09264445, -7.0077744, 0, 0, 0, 0, 0, 0, 0.170519, -0.77944016, -8.404265, 0, 0, 0, 0, 0, 0, 0.7016971, -1.5111539, -7.732559, 0, 0, 0, 0, 0, 0, 1.049089, -2.1167102, -6.5846357, 0, 0, 0, 0, 0, 0, 1.0463302, -2.3185623, -5.440763, 0, 0, 0, 0, 0, 0, 0.8476819, -2.3437946, -4.024495, 0, 0, 0, 0, 0, 0, 7.3520465, 1.4195024, -7.250226, 0, 0, 0, 0, 0, 0, 13.740995, 1.6418561, -4.9095716),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[node name="floating_eye" type="Node3D" unique_id=1080516817]
 
 [node name="Sketchfab_model" type="Node3D" parent="." unique_id=506510699]
 transform = Transform3D(0.13614902, 0, 0, 0, 3.0231155e-17, 0.13614902, 0, -0.13614902, 3.0231155e-17, 0, 0, 0)
@@ -100,9 +109,10 @@ transform = Transform3D(0.13614902, 0, 0, 0, 3.0231155e-17, 0.13614902, 0, -0.13
 [node name="GLTF_SceneRootNode" type="Node3D" parent="Sketchfab_model/root" unique_id=908987876]
 transform = Transform3D(1, 0, 0, 0, 2.220446e-16, -1, 0, 1, 2.220446e-16, 0, 0, 0)
 
-[node name="eye-kraken_1" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode" unique_id=436348105]
+[node name="eye-kraken_1" type="CharacterBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode" unique_id=1482778280]
 
 [node name="Object_4" type="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=706394656]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qk8gs")
 
 [node name="irys_kraken_0" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1438412304]
@@ -110,7 +120,17 @@ mesh = SubResource("ArrayMesh_qk8gs")
 [node name="Object_6" type="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/irys_kraken_0" unique_id=1634214854]
 mesh = SubResource("ArrayMesh_uyyid")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1770037132]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("SphereShape3D_r231x")
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
 autoplay = true
-bus = &"SFX"
+
+[node name="Path3D" type="Path3D" parent="." unique_id=832784099]
+curve = SubResource("Curve3D_nm0is")
+debug_custom_color = Color(0.90588236, 0.03137255, 0.77254903, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1194456146]
+transform = Transform3D(0.6911188, -0.0061490643, 0.72271496, 0, 0.9999638, 0.008507974, -0.7227412, -0.0058800215, 0.6910937, 2.0036283, 1.0345718, 2.2485116)
