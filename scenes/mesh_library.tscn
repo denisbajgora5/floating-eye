@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bce73smjod38l" path="res://scenes/rocks/rock_c.tscn" id="10_v8hlr"]
 [ext_resource type="PackedScene" uid="uid://c3uscvcj0uvac" path="res://scenes/rocks/rock_d.tscn" id="11_guy5x"]
 [ext_resource type="PackedScene" uid="uid://gv1d1h73or0a" path="res://scenes/rocks/rock_e.tscn" id="12_2e065"]
+[ext_resource type="PackedScene" uid="uid://dqrybtj8wm0th" path="res://scenes/bushes/bush_a.tscn" id="13_4ixjr"]
+[ext_resource type="PackedScene" uid="uid://cw5ys0tlj74pk" path="res://scenes/bushes/bush_b.tscn" id="14_38xbh"]
+[ext_resource type="PackedScene" uid="uid://b7ftpctodt6lq" path="res://scenes/bushes/bush_c.tscn" id="15_38xbh"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -38,3 +41,9 @@
 [node name="RockD" parent="." unique_id=1767131671 instance=ExtResource("11_guy5x")]
 
 [node name="RockE" parent="." unique_id=1297418627 instance=ExtResource("12_2e065")]
+
+[node name="BushA" parent="." unique_id=566069436 instance=ExtResource("13_4ixjr")]
+
+[node name="BushB" parent="." unique_id=1835289859 instance=ExtResource("14_38xbh")]
+
+[node name="BushC" parent="." unique_id=344934030 instance=ExtResource("15_38xbh")]
