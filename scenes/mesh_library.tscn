@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b8adntpb76pg3" path="res://scenes/trees/tree_c.tscn" id="5_lcowe"]
 [ext_resource type="PackedScene" uid="uid://io5e67m04i8c" path="res://scenes/trees/tree_d.tscn" id="6_k5xwo"]
 [ext_resource type="PackedScene" uid="uid://bu6coewlv7psf" path="res://scenes/trees/tree_e.tscn" id="7_tye7d"]
+[ext_resource type="PackedScene" uid="uid://cfox5lw6n35jx" path="res://scenes/rocks/rock_a.tscn" id="8_4xjeu"]
+[ext_resource type="PackedScene" uid="uid://cmcd6dq0vjimk" path="res://scenes/rocks/rock_b.tscn" id="9_kdeqk"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -23,3 +25,7 @@
 [node name="TreeD" parent="." unique_id=1245507968 instance=ExtResource("6_k5xwo")]
 
 [node name="TreeE" parent="." unique_id=426874144 instance=ExtResource("7_tye7d")]
+
+[node name="RockA" parent="." unique_id=1474507700 instance=ExtResource("8_4xjeu")]
+
+[node name="RockB" parent="." unique_id=1407351321 instance=ExtResource("9_kdeqk")]
