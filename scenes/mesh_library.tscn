@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bu6coewlv7psf" path="res://scenes/trees/tree_e.tscn" id="7_tye7d"]
 [ext_resource type="PackedScene" uid="uid://cfox5lw6n35jx" path="res://scenes/rocks/rock_a.tscn" id="8_4xjeu"]
 [ext_resource type="PackedScene" uid="uid://cmcd6dq0vjimk" path="res://scenes/rocks/rock_b.tscn" id="9_kdeqk"]
+[ext_resource type="PackedScene" uid="uid://bce73smjod38l" path="res://scenes/rocks/rock_c.tscn" id="10_v8hlr"]
+[ext_resource type="PackedScene" uid="uid://c3uscvcj0uvac" path="res://scenes/rocks/rock_d.tscn" id="11_guy5x"]
+[ext_resource type="PackedScene" uid="uid://gv1d1h73or0a" path="res://scenes/rocks/rock_e.tscn" id="12_2e065"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -29,3 +32,9 @@
 [node name="RockA" parent="." unique_id=1474507700 instance=ExtResource("8_4xjeu")]
 
 [node name="RockB" parent="." unique_id=1407351321 instance=ExtResource("9_kdeqk")]
+
+[node name="RockC" parent="." unique_id=1907809972 instance=ExtResource("10_v8hlr")]
+
+[node name="RockD" parent="." unique_id=1767131671 instance=ExtResource("11_guy5x")]
+
+[node name="RockE" parent="." unique_id=1297418627 instance=ExtResource("12_2e065")]
