@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dqrybtj8wm0th" path="res://scenes/bushes/bush_a.tscn" id="13_4ixjr"]
 [ext_resource type="PackedScene" uid="uid://cw5ys0tlj74pk" path="res://scenes/bushes/bush_b.tscn" id="14_38xbh"]
 [ext_resource type="PackedScene" uid="uid://b7ftpctodt6lq" path="res://scenes/bushes/bush_c.tscn" id="15_38xbh"]
+[ext_resource type="PackedScene" uid="uid://bv2e7e3f6567i" path="res://scenes/bushes/bush_d.tscn" id="16_s3t8n"]
+[ext_resource type="PackedScene" uid="uid://c8nqwh62hbvb" path="res://scenes/blocks/cool_block.tscn" id="17_qvf5i"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -47,3 +49,7 @@
 [node name="BushB" parent="." unique_id=1835289859 instance=ExtResource("14_38xbh")]
 
 [node name="BushC" parent="." unique_id=344934030 instance=ExtResource("15_38xbh")]
+
+[node name="BushD" parent="." unique_id=853315113 instance=ExtResource("16_s3t8n")]
+
+[node name="CoolBlock" parent="." unique_id=534002254 instance=ExtResource("17_qvf5i")]
