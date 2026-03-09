@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://c8nqwh62hbvb" path="res://scenes/blocks/cool_block.tscn" id="17_qvf5i"]
 [ext_resource type="PackedScene" uid="uid://yvx6mqo67pcy" path="res://scenes/blocks/lava.tscn" id="18_egsuv"]
 [ext_resource type="PackedScene" uid="uid://g5c1fb4pi1pr" path="res://scenes/blocks/gold.tscn" id="19_vhln4"]
+[ext_resource type="PackedScene" uid="uid://bsqwm3smi5508" path="res://scenes/blocks/silver.tscn" id="20_av5uk"]
+[ext_resource type="PackedScene" uid="uid://daevleqioj6ui" path="res://scenes/blocks/metal.tscn" id="21_gc77v"]
+[ext_resource type="PackedScene" uid="uid://bt3ijwthhcq7p" path="res://scenes/blocks/copper.tscn" id="22_c0wvj"]
 
 [node name="mesh_library" type="Node3D" unique_id=1737486399]
 
@@ -59,3 +62,9 @@
 [node name="Lava" parent="." unique_id=392061959 instance=ExtResource("18_egsuv")]
 
 [node name="Gold" parent="." unique_id=1934901527 instance=ExtResource("19_vhln4")]
+
+[node name="Silver" parent="." unique_id=1035360449 instance=ExtResource("20_av5uk")]
+
+[node name="Metal" parent="." unique_id=548616007 instance=ExtResource("21_gc77v")]
+
+[node name="Copper" parent="." unique_id=877531344 instance=ExtResource("22_c0wvj")]
