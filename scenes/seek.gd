@@ -11,7 +11,7 @@ func on_draw_gizmos():
 		DebugDraw3D.draw_line(boid.global_transform.origin, world_target, Color.AQUA)
 
 func calculate():
-	if not target or boid:
+	if not target or not boid:
 		return Vector3.ZERO		
 	world_target = target.global_transform.origin
 	return boid.seek_force(world_target)
