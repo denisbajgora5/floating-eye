@@ -2,6 +2,7 @@
 class_name Seek extends SteeringBehavior
 
 @export var target:Node3D
+@export var look_forward := 2.0
 var world_target:Vector3
 
 func on_draw_gizmos():
@@ -13,7 +14,7 @@ func on_draw_gizmos():
 func calculate():
 	if not target or not boid:
 		return Vector3.ZERO		
-	world_target = target.global_transform.origin
+	world_target = target.global_transform.origin + target.global_transform.basis.z * look_forward 
 	return boid.seek_force(world_target)
 
 
