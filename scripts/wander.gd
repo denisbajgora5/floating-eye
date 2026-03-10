@@ -1,8 +1,8 @@
 class_name Wander extends SteeringBehavior
 
 @export var distance:float = 20
-@export var radius:float  = 10
-@export var jitter:float = 50
+@export var radius:float  = 5
+@export var jitter:float = 30
 
 enum Axis { Horizontal, Vertical}
 

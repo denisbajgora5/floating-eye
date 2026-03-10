@@ -134,8 +134,7 @@ target = NodePath("../../../../../Path3D/PathFollow3D")
 
 [node name="Wander" type="Node" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=995748629]
 script = ExtResource("6_ruxdl")
-radius = 5.0
-jitter = 25.0
+axis = 1
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
