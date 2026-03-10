@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://byersijr0cnkn"]
 
 [ext_resource type="Texture2D" uid="uid://c6mxb1ef40wul" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_0.png" id="1_kwshu"]
-[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scenes/eye_kraken_1.gd" id="1_nm0is"]
+[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scripts/eye_kraken_1.gd" id="1_nm0is"]
 [ext_resource type="Texture2D" uid="uid://1lirfuljihcw" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_1.png" id="2_r231x"]
 [ext_resource type="Texture2D" uid="uid://dirlsaq8s74g2" path="res://assets/models/character_models/kraken_eyeball_-_blender_file_3.png" id="3_8tm60"]
-[ext_resource type="Script" uid="uid://oy4elna3q7n1" path="res://scenes/seek.gd" id="4_8tm60"]
+[ext_resource type="Script" uid="uid://oy4elna3q7n1" path="res://scripts/seek.gd" id="4_8tm60"]
 [ext_resource type="AudioStream" uid="uid://d06xhosuqy5x2" path="res://assets/music/eye_background.wav" id="4_r231x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0stm"]
@@ -96,10 +96,10 @@ shadow_mesh = SubResource("ArrayMesh_hotru")
 
 [sub_resource type="Curve3D" id="Curve3D_nm0is"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0036283, 1.0345718, 2.2485116, 0, 0, 0, 0, 0, 0, -3.3496017, 0.97155225, -2.8704953, 0, 0, 0, 0, 0, 0, -3.4470136, -0.21856141, -5.051739, 0, 0, 0, 0, 0, 0, -1.644609, 0.10404563, -2.291436, 0, 0, 0, 0, 0, 0, -0.3100922, -1.0634947, -4.54886, 0, 0, 0, 0, 0, 0, -0.8047333, 0.09264445, -7.0077744, 0, 0, 0, 0, 0, 0, 0.170519, -0.77944016, -8.404265, 0, 0, 0, 0, 0, 0, 0.7016971, -1.5111539, -7.732559, 0, 0, 0, 0, 0, 0, 1.049089, -2.1167102, -6.5846357, 0, 0, 0, 0, 0, 0, 1.0463302, -2.3185623, -5.440763, 0, 0, 0, 0, 0, 0, 0.8476819, -2.3437946, -4.024495, 0, 0, 0, 0, 0, 0, 7.3520465, 1.4195024, -7.250226, 0, 0, 0, 0, 0, 0, 13.740995, 1.6418561, -4.9095716),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0036283, 1.0345718, 2.2485116, 0, 0, 0, 0, 0, 0, -3.3496017, 0.97155225, -2.8704953, 0, 0, 0, 0, 0, 0, -3.4470136, -0.21856141, -5.051739, 0, 0, 0, 0, 0, 0, -1.644609, 0.10404563, -2.291436, 0, 0, 0, 0, 0, 0, -0.3100922, -1.0634947, -4.54886, 0, 0, 0, 0, 0, 0, -0.8047333, 0.09264445, -7.0077744, 0, 0, 0, 0, 0, 0, 0.170519, -0.77944016, -8.404265, 0, 0, 0, 0, 0, 0, 0.7016971, -1.5111539, -7.732559, 0, 0, 0, 0, 0, 0, 1.049089, -2.1167102, -6.5846357, 0, 0, 0, 0, 0, 0, 1.0463302, -2.3185623, -5.440763, 0, 0, 0, 0, 0, 0, 0.8476819, -2.3437946, -4.024495, 0, 0, 0, 0, 0, 0, 7.3520465, 1.4195024, -7.250226, 0, 0, 0, 0, 0, 0, 13.740995, 1.6418561, -4.9095716, 0, 0, 0, 0, 0, 0, 14.722732, 4.2176075, -2.6311617, 0, 0, 0, 0, 0, 0, 14.384878, 2.66782, -1.0690386, 0, 0, 0, 0, 0, 0, 14.422983, 1.9201636, 1.3469839, 0, 0, 0, 0, 0, 0, 12.237557, 1.162056, 4.235368, 0, 0, 0, 0, 0, 0, 10.560522, 2.773858, 6.23927, 0, 0, 0, 0, 0, 0, 8.13908, 2.7475348, 7.7755146, 0, 0, 0, 0, 0, 0, 1.7065511, -1.3524909, -2.1242955),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 13
+point_count = 20
 
 [node name="floating_eye" type="Node3D" unique_id=1080516817]
 
