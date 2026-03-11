@@ -150,7 +150,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.7
 shape = SubResource("BoxShape3D_tipki")
 
 [node name="Wall4" type="Node3D" parent="Borders" unique_id=1839890830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.294415, 0, -13.584648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3576, 0, -13.584648)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall4" unique_id=410026735]
 
