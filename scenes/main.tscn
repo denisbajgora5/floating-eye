@@ -59,6 +59,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.496
 [node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee3" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
 leader_boid = NodePath("../../LeaderSpaceBee")
 
+[node name="FollowerSpaceBee4" parent="SpaceBees" unique_id=222091057 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee4" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee5" parent="SpaceBees" unique_id=2002563139 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee5" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee6" parent="SpaceBees" unique_id=1861567961 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee6" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee7" parent="SpaceBees" unique_id=725207555 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee7" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee8" parent="SpaceBees" unique_id=1565775683 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee8" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee9" parent="SpaceBees" unique_id=1397379716 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee9" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
+[node name="FollowerSpaceBee10" parent="SpaceBees" unique_id=5760673 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.4969826)
+
+[node name="OffsetPursue" parent="SpaceBees/FollowerSpaceBee10" index="2" unique_id=2107339393 node_paths=PackedStringArray("leader_boid")]
+leader_boid = NodePath("../../LeaderSpaceBee")
+
 [editable path="SpaceBees/FollowerSpaceBee"]
 [editable path="SpaceBees/FollowerSpaceBee2"]
 [editable path="SpaceBees/FollowerSpaceBee3"]
+[editable path="SpaceBees/FollowerSpaceBee4"]
+[editable path="SpaceBees/FollowerSpaceBee5"]
+[editable path="SpaceBees/FollowerSpaceBee6"]
+[editable path="SpaceBees/FollowerSpaceBee7"]
+[editable path="SpaceBees/FollowerSpaceBee8"]
+[editable path="SpaceBees/FollowerSpaceBee9"]
+[editable path="SpaceBees/FollowerSpaceBee10"]
