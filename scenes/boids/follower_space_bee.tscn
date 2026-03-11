@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmwkm83sa46t0"]
+
+[ext_resource type="Script" uid="uid://cgow41ct72gq7" path="res://scripts/behaviours/offSetPursue.gd" id="1_r3xiw"]
+[ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="2_pw220"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_g5kk6"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pfky"]
+albedo_color = Color(0.62352943, 0.003921569, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b885v"]
+points = PackedVector3Array(0, 0.05, 0.05, 0.05, -0.05, 0.05, 0, 0.05, -0.05, -0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, -0.05, -0.05)
+
+[node name="FollowerSpaceBee" type="CharacterBody3D" unique_id=327748852]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1406229056]
+mesh = SubResource("PrismMesh_g5kk6")
+surface_material_override/0 = SubResource("StandardMaterial3D_3pfky")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1235622803]
+shape = SubResource("ConvexPolygonShape3D_b885v")
+
+[node name="OffsetPursue" type="Node" parent="." unique_id=2107339393]
+script = ExtResource("1_r3xiw")
+metadata/_custom_type_script = "uid://cgow41ct72gq7"
+
+[node name="Avoidance" type="Node" parent="." unique_id=980414531]
+script = ExtResource("2_pw220")
+metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
