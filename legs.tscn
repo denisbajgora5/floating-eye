@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://8uq6ycxya2gq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uf2bj"]
+top_radius = 0.1
+bottom_radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fopk"]
+albedo_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l3baa"]
+
+[sub_resource type="Animation" id="Animation_nqllu"]
+resource_name = "leg1_movement"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqteg"]
+_data = {
+&"leg1_movement": SubResource("Animation_nqllu")
+}
+
+[sub_resource type="Animation" id="Animation_6b480"]
+resource_name = "leg3 animation"
+length = 0.43333334
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eswl"]
+_data = {
+&"leg3 animation": SubResource("Animation_6b480")
+}
+
+[node name="legs" type="Node3D" unique_id=516949772]
+
+[node name="leg1" type="CharacterBody3D" parent="." unique_id=511626828]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg1" unique_id=2046494154]
+mesh = SubResource("CylinderMesh_uf2bj")
+surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg1" unique_id=1001480481]
+shape = SubResource("CylinderShape3D_l3baa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="leg1" unique_id=1352567242]
+libraries/ = SubResource("AnimationLibrary_lqteg")
+
+[node name="leg2" type="CharacterBody3D" parent="." unique_id=104580627]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.24439192, -0.0060312077, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg2" unique_id=229353651]
+mesh = SubResource("CylinderMesh_uf2bj")
+surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg2" unique_id=921028067]
+shape = SubResource("CylinderShape3D_l3baa")
+
+[node name="leg3" type="CharacterBody3D" parent="." unique_id=1517146521]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.11833477, 0.040647343, 1.4901161e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg3" unique_id=1184663624]
+mesh = SubResource("CylinderMesh_uf2bj")
+surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg3" unique_id=1440017975]
+shape = SubResource("CylinderShape3D_l3baa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="leg3" unique_id=805157392]
+libraries/ = SubResource("AnimationLibrary_6eswl")
+
+[node name="leg4" type="CharacterBody3D" parent="." unique_id=1422911312]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.3150314, -0.068065256, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg4" unique_id=513231750]
+mesh = SubResource("CylinderMesh_uf2bj")
+surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg4" unique_id=805161596]
+shape = SubResource("CylinderShape3D_l3baa")
