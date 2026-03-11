@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d06xhosuqy5x2" path="res://assets/music/eye_background.wav" id="4_r231x"]
 [ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="6_ruxdl"]
 [ext_resource type="Script" uid="uid://c420gekqhca25" path="res://scenes/avoidance.gd" id="7_2nsk1"]
+[ext_resource type="Script" uid="uid://dv40oamatiris" path="res://scenes/mesh_instance_3d.gd" id="9_bttbs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0stm"]
 resource_name = "KRAKEN-EYE"
@@ -152,3 +153,6 @@ debug_custom_color = Color(0.90588236, 0.03137255, 0.77254903, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1194456146]
 transform = Transform3D(-0.4085313, 0.38500667, 0.8275656, 0, 0.90667945, -0.42181307, -0.9127356, -0.17232513, -0.37041008, 2.0036283, 1.0345718, 2.2485116)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D" unique_id=1025872988]
+script = ExtResource("9_bttbs")
