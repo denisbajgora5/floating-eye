@@ -28,9 +28,11 @@ shape = SubResource("ConvexPolygonShape3D_ysdg8")
 
 [node name="Wander" type="Node" parent="." unique_id=444020312]
 script = ExtResource("2_ysdg8")
+draw_gizmos = false
 metadata/_custom_type_script = "uid://ji4ehh7ttjod"
 
 [node name="Avoidance" type="Node" parent="." unique_id=1280208555]
 script = ExtResource("3_d7xpu")
 weight = 2.5
+draw_gizmos = false
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
