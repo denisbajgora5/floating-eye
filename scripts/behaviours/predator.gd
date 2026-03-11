@@ -7,7 +7,7 @@ enum PredatorState {
 }
 
 @export var chase_start_distance: float = 28.0
-@export var chase_stop_distance: float = 42.0
+@export var chase_stop_distance: float = 20.0
 
 var current_state: int = -1
 var pursue_behavior: SteeringBehavior

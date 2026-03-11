@@ -34,5 +34,4 @@ metadata/_custom_type_script = "uid://bxubkwmvp5e0a"
 
 [node name="Wander" type="Node" parent="." unique_id=1523825428]
 script = ExtResource("3_t127c")
-weight = 1.2
 metadata/_custom_type_script = "uid://ji4ehh7ttjod"

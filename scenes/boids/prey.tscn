@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c7rfy8x03x8c4" path="res://scripts/prey.gd" id="1_u2mv7"]
 [ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="2_mv3ad"]
-[ext_resource type="Script" uid="uid://dbs1iuji2espn" path="res://scripts/behaviours/alignment.gd" id="3_c7ln2"]
-[ext_resource type="Script" uid="uid://lpoaxqpdnxau" path="res://scripts/behaviours/cohesion.gd" id="4_0576l"]
-[ext_resource type="Script" uid="uid://pshsgx8okyxv" path="res://scripts/behaviours/separation.gd" id="5_bu1y8"]
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="6_c7ln2"]
 [ext_resource type="Script" uid="uid://2vnxfq6aikaa" path="res://scripts/behaviours/flee.gd" id="7_0576l"]
 
@@ -31,25 +28,11 @@ script = ExtResource("2_mv3ad")
 weight = 2.0
 metadata/_custom_type_script = "uid://ji4ehh7ttjod"
 
-[node name="Alignment" type="Node" parent="." unique_id=2087803979]
-script = ExtResource("3_c7ln2")
-metadata/_custom_type_script = "uid://dbs1iuji2espn"
-
-[node name="Separation" type="Node" parent="." unique_id=232016479]
-script = ExtResource("5_bu1y8")
-weight = 2.0
-metadata/_custom_type_script = "uid://pshsgx8okyxv"
-
-[node name="Cohesion" type="Node" parent="." unique_id=117304733]
-script = ExtResource("4_0576l")
-metadata/_custom_type_script = "uid://lpoaxqpdnxau"
-
 [node name="Avoidance" type="Node" parent="." unique_id=572418138]
 script = ExtResource("6_c7ln2")
-weight = 8.0
+weight = 10.0
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Flee" type="Node" parent="." unique_id=1703878069]
 script = ExtResource("7_0576l")
-weight = 4.0
 metadata/_custom_type_script = "uid://2vnxfq6aikaa"
