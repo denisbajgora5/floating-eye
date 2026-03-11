@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2nn25gq130fw" path="res://scripts/boids/boid.gd" id="1_f0fbq"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_5bi3n"]
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5bi3n"]
 points = PackedVector3Array(0, 0.05, 0.05, 0.05, -0.05, 0.05, 0, 0.05, -0.05, -0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, -0.05, -0.05)
