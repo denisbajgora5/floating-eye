@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ck5rjin4clic5"]
+
+[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scripts/eye_kraken_1.gd" id="1_f0fbq"]
+[ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="2_ysdg8"]
+[ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="3_d7xpu"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_5bi3n"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdg8"]
+albedo_color = Color(0.9887646, 0.8088677, 0.416693, 1)
+metallic = 1.0
+emission_enabled = true
+emission_energy_multiplier = 10.28
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ysdg8"]
+points = PackedVector3Array(0, 0.25, 0.25, 0.25, -0.25, 0.25, 0, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
+
+[node name="LeaderSpaceBee" type="CharacterBody3D" unique_id=181819984]
+script = ExtResource("1_f0fbq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778336461]
+mesh = SubResource("PrismMesh_5bi3n")
+surface_material_override/0 = SubResource("StandardMaterial3D_ysdg8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1675447316]
+shape = SubResource("ConvexPolygonShape3D_ysdg8")
+
+[node name="Wander" type="Node" parent="." unique_id=444020312]
+script = ExtResource("2_ysdg8")
+metadata/_custom_type_script = "uid://ji4ehh7ttjod"
+
+[node name="Avoidance" type="Node" parent="." unique_id=1280208555]
+script = ExtResource("3_d7xpu")
+weight = 2.5
+metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
