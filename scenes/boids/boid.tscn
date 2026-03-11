@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ck5rjin4clic5"]
 
+[ext_resource type="Script" uid="uid://d2nn25gq130fw" path="res://scripts/boids/boid.gd" id="1_f0fbq"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_5bi3n"]
 size = Vector3(0.1, 0.1, 0.1)
 
@@ -7,6 +9,7 @@ size = Vector3(0.1, 0.1, 0.1)
 points = PackedVector3Array(0, 0.05, 0.05, 0.05, -0.05, 0.05, 0, 0.05, -0.05, -0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, -0.05, -0.05)
 
 [node name="Boid" type="CharacterBody3D" unique_id=181819984]
+script = ExtResource("1_f0fbq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778336461]
 mesh = SubResource("PrismMesh_5bi3n")
