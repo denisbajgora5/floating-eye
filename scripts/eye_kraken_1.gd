@@ -22,6 +22,8 @@ var school = null
 var new_force = Vector3.ZERO
 var should_calculate = false
 
+	
+
 func draw_gizmos_recursive(dg):
 	draw_gizmos = dg
 	var children = get_children()
@@ -117,6 +119,11 @@ func arrive_force(target:Vector3, slowingDistance:float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for individual_leg in $legs.get_children():
+		var player = individual_leg.get_node_or_null("AnimationPlayer")
+		if player:
+			var name_of_animation = individual_leg.name + "_animation"
+			player.play(name_of_animation)
 	# Check for a variable
 	if "partition" in get_parent():
 		school = get_parent()

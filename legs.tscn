@@ -25,7 +25,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nqllu"]
-resource_name = "leg1_movement"
+resource_name = "leg1_animation"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,16 +34,16 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3377, 0.5585, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1.366041, 1, 2.6390157),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3377, 0.5585, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.366041, 1, 2.6390157),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.7592182), Vector3(0, 0, -0.28448868), Vector3(0, 0, -0.45727625), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.27750736), Vector3(0, 0, 0.44505897), Vector3(0, 0, 0.7592182), Vector3(0, 0, -0.28448868), Vector3(0, 0, -0.45727625), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqteg"]
 _data = {
 &"RESET": SubResource("Animation_uf2bj"),
-&"leg1_movement": SubResource("Animation_nqllu")
+&"leg1_animation": SubResource("Animation_nqllu")
 }
 
 [sub_resource type="Animation" id="Animation_l3baa"]
@@ -62,7 +62,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_lqteg"]
-resource_name = "leg2 animation"
+resource_name = "leg2_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,7 +79,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b480"]
 _data = {
 &"RESET": SubResource("Animation_l3baa"),
-&"leg2 animation": SubResource("Animation_lqteg")
+&"leg2_animation": SubResource("Animation_lqteg")
 }
 
 [sub_resource type="Animation" id="Animation_5fopk"]
@@ -98,7 +98,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6b480"]
-resource_name = "leg3 animation"
+resource_name = "leg3_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,7 +115,43 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6eswl"]
 _data = {
 &"RESET": SubResource("Animation_5fopk"),
-&"leg3 animation": SubResource("Animation_6b480")
+&"leg3_animation": SubResource("Animation_6b480")
+}
+
+[sub_resource type="Animation" id="Animation_6eswl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uf3ef"]
+resource_name = "leg4_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.5235988), Vector3(0, 0, 0.87266463), Vector3(0, 0, 0.5235988), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.0034906585)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rf2s"]
+_data = {
+&"RESET": SubResource("Animation_6eswl"),
+&"leg4_animation": SubResource("Animation_uf3ef")
 }
 
 [node name="legs" type="Node3D" unique_id=516949772]
@@ -170,3 +206,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
 shape = SubResource("CylinderShape3D_l3baa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="leg4" unique_id=129332652]
+libraries/ = SubResource("AnimationLibrary_3rf2s")
