@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://d1rta3b0lngef"]
+
+[ext_resource type="Script" uid="uid://c7rfy8x03x8c4" path="res://scripts/prey.gd" id="1_u2mv7"]
+[ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="2_mv3ad"]
+[ext_resource type="Script" uid="uid://dbs1iuji2espn" path="res://scripts/behaviours/alignment.gd" id="3_c7ln2"]
+[ext_resource type="Script" uid="uid://lpoaxqpdnxau" path="res://scripts/behaviours/cohesion.gd" id="4_0576l"]
+[ext_resource type="Script" uid="uid://pshsgx8okyxv" path="res://scripts/behaviours/separation.gd" id="5_bu1y8"]
+[ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="6_c7ln2"]
+[ext_resource type="Script" uid="uid://2vnxfq6aikaa" path="res://scripts/behaviours/flee.gd" id="7_0576l"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_831g5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2mv7"]
+albedo_color = Color(0, 0.6438593, 0.34522882, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u3uof"]
+points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, -0.15, -0.15)
+
+[node name="Prey" type="CharacterBody3D" unique_id=1620867089]
+script = ExtResource("1_u2mv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004992586]
+mesh = SubResource("PrismMesh_831g5")
+surface_material_override/0 = SubResource("StandardMaterial3D_u2mv7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1316156799]
+shape = SubResource("ConvexPolygonShape3D_u3uof")
+
+[node name="Wander" type="Node" parent="." unique_id=501944273]
+script = ExtResource("2_mv3ad")
+weight = 2.0
+metadata/_custom_type_script = "uid://ji4ehh7ttjod"
+
+[node name="Alignment" type="Node" parent="." unique_id=2087803979]
+script = ExtResource("3_c7ln2")
+metadata/_custom_type_script = "uid://dbs1iuji2espn"
+
+[node name="Separation" type="Node" parent="." unique_id=232016479]
+script = ExtResource("5_bu1y8")
+weight = 2.0
+metadata/_custom_type_script = "uid://pshsgx8okyxv"
+
+[node name="Cohesion" type="Node" parent="." unique_id=117304733]
+script = ExtResource("4_0576l")
+metadata/_custom_type_script = "uid://lpoaxqpdnxau"
+
+[node name="Avoidance" type="Node" parent="." unique_id=572418138]
+script = ExtResource("6_c7ln2")
+weight = 3.0
+metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
+
+[node name="Flee" type="Node" parent="." unique_id=1703878069]
+script = ExtResource("7_0576l")
+weight = 4.0
+metadata/_custom_type_script = "uid://2vnxfq6aikaa"

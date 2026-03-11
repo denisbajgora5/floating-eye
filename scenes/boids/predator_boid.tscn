@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://c05hi17nvne50"]
 
+[ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="1_2ugys"]
+[ext_resource type="Script" uid="uid://oa0ukii4ana0" path="res://scripts/behaviours/predator.gd" id="1_agobk"]
+[ext_resource type="Script" uid="uid://bxubkwmvp5e0a" path="res://scripts/behaviours/pursue.gd" id="2_agobk"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_t37k3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2wcb"]
@@ -8,7 +12,8 @@ albedo_color = Color(0.9984214, 0, 0.20199275, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t37k3"]
 points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, -0.15, -0.15)
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1114135800]
+[node name="Predator" type="CharacterBody3D" unique_id=1114135800]
+script = ExtResource("1_agobk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=638310629]
 mesh = SubResource("PrismMesh_t37k3")
@@ -16,3 +21,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_t2wcb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1419682382]
 shape = SubResource("ConvexPolygonShape3D_t37k3")
+
+[node name="Avoidance" type="Node" parent="." unique_id=1225329102]
+script = ExtResource("1_2ugys")
+metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
+
+[node name="Pursue" type="Node" parent="." unique_id=1256996296]
+script = ExtResource("2_agobk")
+metadata/_custom_type_script = "uid://bxubkwmvp5e0a"
