@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cbwd14052lpbg"]
 
-[ext_resource type="Texture2D" uid="uid://ddl4et5uuiyyt" path="res://assets/skybox/autumn_field_puresky_4k(2).hdr" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://byersijr0cnkn" path="res://scenes/floating_eye.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bsrrd3xd641lj" path="res://autumn_field_puresky_4k.hdr" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://i51dasygf6xl" path="res://scenes/proto_controller.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnxptk67jbpgg" path="res://scenes/map.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ck5rjin4clic5" path="res://scenes/boids/LeaderSpaceBee.tscn" id="5_tbgi4"]
@@ -9,17 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://c05hi17nvne50" path="res://scenes/boids/predator_boid.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d1rta3b0lngef" path="res://scenes/boids/prey.tscn" id="8_tipki"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
-panorama = ExtResource("1_jyhfs")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_85g3d"]
+panorama = ExtResource("1_tipki")
 
-[sub_resource type="Sky" id="Sky_sugp2"]
-sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
+[sub_resource type="Sky" id="Sky_choun"]
+sky_material = SubResource("PanoramaSkyMaterial_85g3d")
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
-sky = SubResource("Sky_sugp2")
+sky = SubResource("Sky_choun")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tipki"]
+size = Vector3(132.72559, 100, 0.1)
 
 [node name="main" type="Node3D" unique_id=308340806]
 
@@ -104,16 +107,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.379131, 7.1396194, -1.496
 leader_boid = NodePath("../../LeaderSpaceBee")
 
 [node name="Predator" parent="SpaceBees" unique_id=1114135800 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.829319, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.356483, 4.829319, -17.35152)
+draw_gizmos = false
 
 [node name="Pursue" parent="SpaceBees/Predator" index="3" unique_id=1256996296]
 enemy_node_path = NodePath("../../Prey")
 
 [node name="Prey" parent="SpaceBees" unique_id=1620867089 instance=ExtResource("8_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7855663, -5.954056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.958603, 15.286703)
+draw_gizmos = false
 
-[node name="Flee" parent="SpaceBees/Prey" index="7" unique_id=1703878069]
+[node name="Flee" parent="SpaceBees/Prey" index="4" unique_id=1703878069]
 enemy_path = NodePath("../../Predator")
+
+[node name="Borders" type="Node" parent="." unique_id=1770041796]
+
+[node name="Wall" type="Node3D" parent="Borders" unique_id=1662102908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64.11167)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall" unique_id=255290106]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/Wall/StaticBody3D" unique_id=1854828081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013183594, 0, 0)
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="Wall2" type="Node3D" parent="Borders" unique_id=627646698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64.020836)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall2" unique_id=781833979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/Wall2/StaticBody3D" unique_id=1573916794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013183594, 0, 0)
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="Wall3" type="Node3D" parent="Borders" unique_id=12153451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.864136, 0, -13.584648)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall3" unique_id=298467840]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/Wall3/StaticBody3D" unique_id=1891166647]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.704838, 0, 12.652573)
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="Wall4" type="Node3D" parent="Borders" unique_id=1839890830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.294415, 0, -13.584648)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall4" unique_id=410026735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/Wall4/StaticBody3D" unique_id=1228902349]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.704838, 0, 12.652573)
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="Wall5" type="Node3D" parent="Borders" unique_id=352303346]
+transform = Transform3D(1.2068287, 0, 0, 0, 1, 0, 0, 0, 1.4913808, -29.71616, 46.831413, -13.584648)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders/Wall5" unique_id=1234010829]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/Wall5/StaticBody3D" unique_id=640372884]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 27.704838, 0, 12.652573)
+shape = SubResource("BoxShape3D_tipki")
 
 [editable path="SpaceBees/FollowerSpaceBee"]
 [editable path="SpaceBees/FollowerSpaceBee2"]
