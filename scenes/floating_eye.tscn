@@ -156,3 +156,5 @@ transform = Transform3D(-0.4085313, 0.38500667, 0.8275656, 0, 0.90667945, -0.421
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D" unique_id=1025872988]
 script = ExtResource("9_bttbs")
+color_of_path = Color(0.3372549, 0.9098039, 0.23529412, 1)
+res = 100
