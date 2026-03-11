@@ -36,6 +36,9 @@ metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Cohesion" type="Node" parent="." unique_id=1612541961]
 script = ExtResource("4_b885v")
+weight = null
+draw_gizmos = null
+enabled = null
 metadata/_custom_type_script = "uid://lpoaxqpdnxau"
 
 [node name="Separation" type="Node" parent="." unique_id=1260251076]

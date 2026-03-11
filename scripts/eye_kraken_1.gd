@@ -15,7 +15,7 @@ var behaviors = []
 @export var draw_gizmos = true
 @export var pause = false
 
-var count_neighbors = false
+var count_neighbors = true
 var neighbors = [] 
 
 var school = null
