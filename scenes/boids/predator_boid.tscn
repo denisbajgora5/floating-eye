@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="1_2ugys"]
 [ext_resource type="Script" uid="uid://oa0ukii4ana0" path="res://scripts/behaviours/predator.gd" id="1_agobk"]
 [ext_resource type="Script" uid="uid://bxubkwmvp5e0a" path="res://scripts/behaviours/pursue.gd" id="2_agobk"]
+[ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="3_t127c"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_t37k3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2wcb"]
 albedo_color = Color(0.9984214, 0, 0.20199275, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t37k3"]
-points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, -0.15, -0.15)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r74qw"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Predator" type="CharacterBody3D" unique_id=1114135800]
 script = ExtResource("1_agobk")
@@ -19,13 +20,19 @@ script = ExtResource("1_agobk")
 mesh = SubResource("PrismMesh_t37k3")
 surface_material_override/0 = SubResource("StandardMaterial3D_t2wcb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1419682382]
-shape = SubResource("ConvexPolygonShape3D_t37k3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1548879062]
+shape = SubResource("ConvexPolygonShape3D_r74qw")
 
 [node name="Avoidance" type="Node" parent="." unique_id=1225329102]
 script = ExtResource("1_2ugys")
+weight = 8.0
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Pursue" type="Node" parent="." unique_id=1256996296]
 script = ExtResource("2_agobk")
 metadata/_custom_type_script = "uid://bxubkwmvp5e0a"
+
+[node name="Wander" type="Node" parent="." unique_id=1523825428]
+script = ExtResource("3_t127c")
+weight = 1.2
+metadata/_custom_type_script = "uid://ji4ehh7ttjod"
