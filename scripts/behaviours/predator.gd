@@ -1,6 +1,8 @@
 class_name Predator
 extends Follower
 
+@export var chase_range := 120.0
+
 enum PredatorState {
 	WANDER,
 	CHASE,
