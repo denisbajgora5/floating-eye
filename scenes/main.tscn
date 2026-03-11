@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://byersijr0cnkn" path="res://scenes/floating_eye.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://i51dasygf6xl" path="res://scenes/proto_controller.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnxptk67jbpgg" path="res://scenes/map.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ck5rjin4clic5" path="res://scenes/boids/boid.tscn" id="5_tbgi4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
 panorama = ExtResource("1_jyhfs")
@@ -33,3 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0931387, -4.683656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)
 
 [node name="GridMap" parent="." unique_id=1221069410 instance=ExtResource("4_jyhfs")]
+
+[node name="Boid" parent="." unique_id=181819984 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2468069, 3.3139107, -3.601686)
