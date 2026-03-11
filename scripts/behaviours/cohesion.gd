@@ -9,7 +9,8 @@ func _ready():
 	boid.count_neighbors = true
 
 func on_draw_gizmos():
-	DebugDraw3D.draw_arrow(boid.global_transform.origin, center_of_mass, Color.DARK_SEA_GREEN, 0.1)
+	# DebugDraw3D.draw_arrow(boid.global_transform.origin, center_of_mass, Color.DARK_SEA_GREEN, 0.1)
+	pass 
 	
 func calculate():
 	
