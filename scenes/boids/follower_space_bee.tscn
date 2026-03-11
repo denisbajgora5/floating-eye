@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmwkm83sa46t0"]
 
-[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scripts/eye_kraken_1.gd" id="1_pw220"]
+[ext_resource type="Script" uid="uid://0lo05r805ok6" path="res://scripts/behaviours/follower.gd" id="1_afqjk"]
 [ext_resource type="Script" uid="uid://cgow41ct72gq7" path="res://scripts/behaviours/offSetPursue.gd" id="1_r3xiw"]
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="2_pw220"]
 [ext_resource type="Script" uid="uid://lpoaxqpdnxau" path="res://scripts/behaviours/cohesion.gd" id="4_b885v"]
@@ -18,7 +18,7 @@ albedo_color = Color(0.62352943, 0.003921569, 0, 1)
 points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, -0.15, -0.15)
 
 [node name="FollowerSpaceBee" type="CharacterBody3D" unique_id=327748852]
-script = ExtResource("1_pw220")
+script = ExtResource("1_afqjk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1406229056]
 mesh = SubResource("PrismMesh_g5kk6")
