@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://lpoaxqpdnxau" path="res://scripts/behaviours/cohesion.gd" id="4_b885v"]
 [ext_resource type="Script" uid="uid://pshsgx8okyxv" path="res://scripts/behaviours/separation.gd" id="5_afqjk"]
 [ext_resource type="Script" uid="uid://dbs1iuji2espn" path="res://scripts/behaviours/alignment.gd" id="6_d8qno"]
+[ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="7_afqjk"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_g5kk6"]
 size = Vector3(0.3, 0.3, 0.3)
@@ -28,20 +29,29 @@ shape = SubResource("ConvexPolygonShape3D_pw220")
 
 [node name="OffsetPursue" type="Node" parent="." unique_id=2107339393]
 script = ExtResource("1_r3xiw")
+weight = 1.2
 metadata/_custom_type_script = "uid://cgow41ct72gq7"
 
 [node name="Avoidance" type="Node" parent="." unique_id=980414531]
 script = ExtResource("2_pw220")
+weight = 3.0
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Cohesion" type="Node" parent="." unique_id=1612541961]
 script = ExtResource("4_b885v")
+weight = 0.8
 metadata/_custom_type_script = "uid://lpoaxqpdnxau"
 
 [node name="Separation" type="Node" parent="." unique_id=1260251076]
 script = ExtResource("5_afqjk")
+weight = 3.0
 metadata/_custom_type_script = "uid://pshsgx8okyxv"
 
 [node name="Alignment" type="Node" parent="." unique_id=1313564036]
 script = ExtResource("6_d8qno")
+weight = 1.5
 metadata/_custom_type_script = "uid://dbs1iuji2espn"
+
+[node name="Wander" type="Node" parent="." unique_id=408891117]
+script = ExtResource("7_afqjk")
+metadata/_custom_type_script = "uid://ji4ehh7ttjod"
