@@ -8,12 +8,13 @@
 size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdg8"]
-albedo_color = Color(0.9887646, 0.8088677, 0.416693, 1)
+albedo_color = Color(0.9529412, 0, 1, 1)
 metallic = 1.0
 emission_enabled = true
-emission_energy_multiplier = 10.28
+emission = Color(0.9529412, 0, 1, 1)
+emission_energy_multiplier = 1.5
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ysdg8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmkox"]
 points = PackedVector3Array(0, 0.25, 0.25, 0.25, -0.25, 0.25, 0, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
 
 [node name="LeaderSpaceBee" type="CharacterBody3D" unique_id=181819984]
@@ -24,8 +25,8 @@ draw_gizmos = false
 mesh = SubResource("PrismMesh_5bi3n")
 surface_material_override/0 = SubResource("StandardMaterial3D_ysdg8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1675447316]
-shape = SubResource("ConvexPolygonShape3D_ysdg8")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1345984351]
+shape = SubResource("ConvexPolygonShape3D_jmkox")
 
 [node name="Wander" type="Node" parent="." unique_id=444020312]
 script = ExtResource("2_ysdg8")
