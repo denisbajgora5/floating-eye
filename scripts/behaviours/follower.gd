@@ -5,12 +5,15 @@ class_name Follower extends CharacterBody3D
 @export var acceleration = Vector3.ZERO
 @export var vel = Vector3.ZERO
 @export var speed:float
-@export var max_speed: float = 5.0
+@export var max_speed: float = 10.0
 
 var behaviors = [] 
 @export var max_force = 10
 @export var banking = 0.1
 @export var damping = 0.1
+
+@export var neighbor_distance: float = 40.0
+@export var max_neighbors: int = 10
 
 @export var draw_gizmos = true
 @export var pause = false
@@ -68,12 +71,17 @@ func count_neighbors_partitioned():
 	
 func count_neighbors_simple():
 	neighbors.clear()
-	for i in school.boids.size():
-		var boid = school.boids[i]
-		if boid != self and global_transform.origin.distance_to(boid.global_transform.origin) < school.neighbor_distance:
-			neighbors.push_back(boid)
-			if neighbors.size() == school.max_neighbors:
-				break
+
+	for boid in get_parent().get_children():
+		if boid != self and boid is CharacterBody3D:
+			var dist = global_transform.origin.distance_to(boid.global_transform.origin)
+
+			if dist < neighbor_distance:
+				neighbors.push_back(boid)
+
+				if neighbors.size() >= max_neighbors:
+					break
+
 	return neighbors.size()
 
 func _input(event):
@@ -93,7 +101,7 @@ func on_draw_gizmos():
 	DebugDraw3D.draw_arrow(global_transform.origin,  global_transform.origin + force, Color(1, 1, 0), 0.1)
 	
 	if school and count_neighbors:
-		DebugDraw3D.draw_sphere(global_transform.origin, school.neighbor_distance, Color.WEB_PURPLE)
+		DebugDraw3D.draw_sphere(global_transform.origin, neighbor_distance, Color.WEB_PURPLE)
 		for neighbor in neighbors:
 			DebugDraw3D.draw_sphere(neighbor.global_transform.origin, 3, Color.WEB_PURPLE)
 			
@@ -118,8 +126,7 @@ func arrive_force(target:Vector3, slowingDistance:float):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Check for a variable
-	if "partition" in get_parent():
-		school = get_parent()
+	school = get_parent()
 	
 	for i in get_child_count():
 		var child = get_child(i)
@@ -163,11 +170,8 @@ func _process(delta):
 	pause = false
 	if draw_gizmos:
 		on_draw_gizmos()
-	if school and count_neighbors:
-		if school.partition:
-			count_neighbors_partitioned()
-		else:
-			count_neighbors_simple()
+	if count_neighbors:
+		count_neighbors_simple()
 			
 func _physics_process(delta):
 	# pause = true

@@ -19,6 +19,7 @@ points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0
 
 [node name="FollowerSpaceBee" type="CharacterBody3D" unique_id=327748852]
 script = ExtResource("1_afqjk")
+draw_gizmos = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1406229056]
 mesh = SubResource("PrismMesh_g5kk6")
