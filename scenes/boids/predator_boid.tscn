@@ -15,6 +15,7 @@ points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.
 
 [node name="Predator" type="CharacterBody3D" unique_id=1114135800]
 script = ExtResource("1_agobk")
+max_speed = 8.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=638310629]
 mesh = SubResource("PrismMesh_t37k3")
@@ -25,7 +26,7 @@ shape = SubResource("ConvexPolygonShape3D_r74qw")
 
 [node name="Avoidance" type="Node" parent="." unique_id=1225329102]
 script = ExtResource("1_2ugys")
-weight = 8.0
+weight = 5.0
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Pursue" type="Node" parent="." unique_id=1256996296]

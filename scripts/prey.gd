@@ -1,7 +1,7 @@
 extends Follower
 
 @export var panic_distance := 30.0
-@export var flee_weight := 10.0
+@export var flee_weight := 1.0
 
 
 func find_predator():
