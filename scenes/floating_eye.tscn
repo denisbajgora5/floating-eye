@@ -98,6 +98,115 @@ shadow_mesh = SubResource("ArrayMesh_hotru")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r231x"]
 
+[sub_resource type="Animation" id="Animation_73o0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("legs/leg1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.34906584)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("legs/leg2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("legs/leg3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("legs/leg4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yrq5d"]
+resource_name = "leg_animations"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("legs/leg1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 3.3635848, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.6981317), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.2617994), Vector3(0, 0, -0.08726646), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("legs/leg4:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.40000004, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004, 0.9333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.6981317), Vector3(0, 0, 0.5235988), Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.08726646), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.5235988), Vector3(0, 0, -0.2617994), Vector3(0, 0, -0.08726646)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("legs/leg3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.40000004, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004, 0.9333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.5235988), Vector3(0, 0, -0.6981317), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.08726646), Vector3(0, 0, 0.2617994), Vector3(0, 0, 0.43633232), Vector3(0, 0, 0.2908881), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("legs/leg2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.43633232), Vector3(0, 0, -0.61086524), Vector3(0, 0, -0.2617994), Vector3(0, 0, 0.08726646), Vector3(0, 0, 0.2617994), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.17453296), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73o0d"]
+_data = {
+&"RESET": SubResource("Animation_73o0d"),
+&"leg_animations": SubResource("Animation_yrq5d")
+}
+
 [sub_resource type="Curve3D" id="Curve3D_nm0is"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0036283, 1.0345718, 2.2485116, 0, 0, 0, 0, 0, 0, -12.164028, 8.255874, 8.589812, 0, 0, 0, 0, 0, 0, -21.944592, 0.4112811, -0.23752117, 0, 0, 0, 0, 0, 0, -4.4059787, -6.0704613, -6.7895713, 0, 0, 0, 0, 0, 0, -0.3100922, -1.0634947, -4.54886, 0, 0, 0, 0, 0, 0, -2.3963003, -2.075851, -6.7812214, 0, 0, 0, 0, 0, 0, -1.9509912, -4.241713, -11.967331, 0, 0, 0, 0, 0, 0, 3.8235502, -3.6085649, -22.774452, 0, 0, 0, 0, 0, 0, 13.868095, -2.2123523, -36.495728, 0, 0, 0, 0, 0, 0, 15.478357, -1.6548824, -23.064379, 0, 0, 0, 0, 0, 0, 14.556932, -6.8404565, -15.195923, 0, 0, 0, 0, 0, 0, 21.254658, -0.5730691, -14.208548, 0, 0, 0, 0, 0, 0, 34.450943, 2.8812377, -12.502552, 0, 0, 0, 0, 0, 0, 14.722732, 4.2176075, -2.6311617, 0, 0, 0, 0, 0, 0, 14.384878, 2.66782, -1.0690386, 0, 0, 0, 0, 0, 0, 14.422983, 1.9201636, 1.3469839, 0, 0, 0, 0, 0, 0, 21.154453, 2.0066767, 7.854292, 0, 0, 0, 0, 0, 0, 10.944984, 5.894491, 9.901942, 0, 0, 0, 0, 0, 0, -1.882979, 5.905859, 23.48789, 0, 0, 0, 0, 0, 0, 3.188509, -1.3524909, -0.03708577),
@@ -151,22 +260,26 @@ enabled = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
 
 [node name="leg1" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="0" unique_id=511626828]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.8073951, -0.5900111, 0, 0.5900111, 0.8073951, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg1" index="0" unique_id=2046494154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7346319, 0, -0.392739)
 
 [node name="leg2" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="1" unique_id=104580627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
+transform = Transform3D(0.97405934, 0.22629264, 0, -0.22629264, 0.97405934, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="leg3" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="2" unique_id=1517146521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
+transform = Transform3D(0.80739504, 0.59001124, 0, -0.59001124, 0.80739504, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg3" index="0" unique_id=1184663624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83852464, 0, -0.4619552)
 
 [node name="leg4" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="3" unique_id=1422911312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
+transform = Transform3D(0.7871622, -0.61674607, 0, 0.61674607, 0.7871622, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1513805035]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_73o0d")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
