@@ -6,12 +6,59 @@
 [ext_resource type="Script" uid="uid://2vnxfq6aikaa" path="res://scripts/behaviours/flee.gd" id="7_0576l"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_831g5"]
+size = Vector3(0.7, 0.7, 1.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_glow"]
+size = Vector3(1.0, 1.0, 1.45)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2mv7"]
-albedo_color = Color(0, 0.6438593, 0.34522882, 1)
+albedo_color = Color(0.043137256, 0.85882354, 0.62352943, 1)
+metallic = 0.25
+roughness = 0.15
+emission_enabled = true
+emission = Color(0.043137256, 0.85882354, 0.62352943, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glow"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+cull_mode = 2
+albedo_color = Color(0.4745098, 1, 0.8784314, 0.3)
+emission_enabled = true
+emission = Color(0.4745098, 1, 0.8784314, 1)
+emission_energy_multiplier = 4.2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0576l"]
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_prey"]
+direction = Vector3(0, 0, -1)
+spread = 58.0
+initial_velocity_min = 0.4
+initial_velocity_max = 1.4
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -0.25
+radial_accel_max = 0.4
+damping_min = 2.5
+damping_max = 4.5
+scale_min = 0.08
+scale_max = 0.22
+color = Color(0.4745098, 1, 0.8784314, 1)
+hue_variation_min = -0.08
+hue_variation_max = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prey_particle"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.4745098, 1, 0.8784314, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_prey_particle"]
+material = SubResource("StandardMaterial3D_prey_particle")
+radius = 0.16
+height = 0.24
 
 [node name="Prey" type="CharacterBody3D" unique_id=1620867089]
 script = ExtResource("1_u2mv7")
@@ -39,3 +86,19 @@ metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 script = ExtResource("7_0576l")
 draw_gizmos = false
 metadata/_custom_type_script = "uid://2vnxfq6aikaa"
+
+[node name="GlowShell" type="MeshInstance3D" parent="." unique_id=62204091]
+mesh = SubResource("PrismMesh_glow")
+surface_material_override/0 = SubResource("StandardMaterial3D_glow")
+
+[node name="Particles" type="Node3D" parent="." unique_id=1497692059]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=1939012063]
+amount = 170
+lifetime = 0.62
+preprocess = 0.2
+randomness = 0.45
+fixed_fps = 120
+visibility_aabb = AABB(-6, -6, -6, 12, 12, 12)
+process_material = SubResource("ParticleProcessMaterial_prey")
+draw_pass_1 = SubResource("SphereMesh_prey_particle")
