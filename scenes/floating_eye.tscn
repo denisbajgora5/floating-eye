@@ -207,6 +207,40 @@ _data = {
 &"leg_animations": SubResource("Animation_yrq5d")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yrq5d"]
+lifetime_randomness = 0.22
+direction = Vector3(0, 0, -1)
+spread = 34.157
+initial_velocity_min = 57.89
+initial_velocity_max = 142.09999
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -85.26
+radial_accel_max = -56.84
+damping_max = 11.053
+scale_min = 11.5199995
+scale_max = 37.84
+color = Color(0.06666667, 1, 1, 1)
+hue_variation_min = -0.39000002
+hue_variation_max = 0.34999996
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqcgr"]
+albedo_color = Color(1, 0.8862745, 0, 1)
+metallic = 1.0
+roughness = 0.65
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 8.44
+ao_enabled = true
+backlight_enabled = true
+refraction_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_560xh"]
+material = SubResource("StandardMaterial3D_nqcgr")
+radius = 0.001
+height = 0.001
+radial_segments = 25
+rings = 6
+
 [sub_resource type="Curve3D" id="Curve3D_nm0is"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0036283, 1.0345718, 2.2485116, 0, 0, 0, 0, 0, 0, -12.164028, 8.255874, 8.589812, 0, 0, 0, 0, 0, 0, -21.944592, 0.4112811, -0.23752117, 0, 0, 0, 0, 0, 0, -4.4059787, -6.0704613, -6.7895713, 0, 0, 0, 0, 0, 0, -0.3100922, -1.0634947, -4.54886, 0, 0, 0, 0, 0, 0, -2.3963003, -2.075851, -6.7812214, 0, 0, 0, 0, 0, 0, -1.9509912, -4.241713, -11.967331, 0, 0, 0, 0, 0, 0, 3.8235502, -3.6085649, -22.774452, 0, 0, 0, 0, 0, 0, 13.868095, -2.2123523, -36.495728, 0, 0, 0, 0, 0, 0, 15.478357, -1.6548824, -23.064379, 0, 0, 0, 0, 0, 0, 14.556932, -6.8404565, -15.195923, 0, 0, 0, 0, 0, 0, 21.254658, -0.5730691, -14.208548, 0, 0, 0, 0, 0, 0, 34.450943, 2.8812377, -12.502552, 0, 0, 0, 0, 0, 0, 14.722732, 4.2176075, -2.6311617, 0, 0, 0, 0, 0, 0, 14.384878, 2.66782, -1.0690386, 0, 0, 0, 0, 0, 0, 14.422983, 1.9201636, 1.3469839, 0, 0, 0, 0, 0, 0, 21.154453, 2.0066767, 7.854292, 0, 0, 0, 0, 0, 0, 10.944984, 5.894491, 9.901942, 0, 0, 0, 0, 0, 0, -1.882979, 5.905859, 23.48789, 0, 0, 0, 0, 0, 0, 3.188509, -1.3524909, -0.03708577),
@@ -260,26 +294,35 @@ enabled = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
 
 [node name="leg1" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="0" unique_id=511626828]
-transform = Transform3D(0.8073951, -0.5900111, 0, 0.5900111, 0.8073951, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.9660832, 0.25823095, 0, -0.25823095, 0.9660832, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg1" index="0" unique_id=2046494154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7346319, 0, -0.392739)
 
 [node name="leg2" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="1" unique_id=104580627]
-transform = Transform3D(0.97405934, 0.22629264, 0, -0.22629264, 0.97405934, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
+transform = Transform3D(0.95029646, -0.3113466, 0, 0.3113466, 0.95029646, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="leg3" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="2" unique_id=1517146521]
-transform = Transform3D(0.80739504, 0.59001124, 0, -0.59001124, 0.80739504, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
+transform = Transform3D(0.9570184, -0.29002738, 0, 0.29002738, 0.9570184, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg3" index="0" unique_id=1184663624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83852464, 0, -0.4619552)
 
 [node name="leg4" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="3" unique_id=1422911312]
-transform = Transform3D(0.7871622, -0.61674607, 0, 0.61674607, 0.7871622, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
+transform = Transform3D(0.92809904, 0.37233335, 0, -0.37233335, 0.92809904, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1513805035]
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_73o0d")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=341517099]
+transparency = 0.28
+amount = 20
+lifetime = 2.8
+preprocess = 1.27
+randomness = 0.15
+process_material = SubResource("ParticleProcessMaterial_yrq5d")
+draw_pass_1 = SubResource("SphereMesh_560xh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
