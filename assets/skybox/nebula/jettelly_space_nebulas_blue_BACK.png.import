@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsrrd3xd641lj"
-path.bptc="res://.godot/imported/autumn_field_puresky_4k.hdr-d355268e42197985cd1623f1957ca5b5.bptc.ctex"
+uid="uid://bi1j6vd5b3oy3"
+path.s3tc="res://.godot/imported/jettelly_space_nebulas_blue_BACK.png-5ffab2275d5ae4565b6ccc1f3a99055e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://autumn_field_puresky_4k.hdr"
-dest_files=["res://.godot/imported/autumn_field_puresky_4k.hdr-d355268e42197985cd1623f1957ca5b5.bptc.ctex"]
+source_file="res://assets/skybox/nebula/jettelly_space_nebulas_blue_BACK.png"
+dest_files=["res://.godot/imported/jettelly_space_nebulas_blue_BACK.png-5ffab2275d5ae4565b6ccc1f3a99055e.s3tc.ctex"]
 
 [params]
 
