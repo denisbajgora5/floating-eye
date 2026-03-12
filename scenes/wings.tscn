@@ -1,0 +1,236 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+albedo_color = Color(0.172549, 0.184314, 0.239216, 1)
+metallic = 0.18
+roughness = 0.58
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feather"]
+albedo_color = Color(0.807843, 0.858824, 0.921569, 1)
+roughness = 0.34
+emission_enabled = true
+emission = Color(0.207843, 0.364706, 0.454902, 1)
+emission_energy_multiplier = 0.12
+
+[sub_resource type="BoxMesh" id="BoxMesh_mount"]
+size = Vector3(0.18, 0.08, 0.14)
+
+[sub_resource type="SphereMesh" id="SphereMesh_joint"]
+radius = 0.035
+height = 0.07
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_arm"]
+top_radius = 0.018
+bottom_radius = 0.026
+height = 0.24
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tip"]
+top_radius = 0.012
+bottom_radius = 0.02
+height = 0.2
+radial_segments = 10
+
+[sub_resource type="PrismMesh" id="PrismMesh_inner"]
+size = Vector3(0.08, 0.018, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_outer"]
+size = Vector3(0.09, 0.02, 0.28)
+
+[sub_resource type="PrismMesh" id="PrismMesh_cover"]
+size = Vector3(0.07, 0.016, 0.14)
+
+[sub_resource type="Animation" id="Animation_flutter"]
+resource_name = "flutter"
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftWing:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6, -3, 0), Vector3(7.5, -2.5, -16), Vector3(4, -4.5, 10), Vector3(7, -3, -12), Vector3(6, -3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightWing:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6, 3, 0), Vector3(7.5, 2.5, 16), Vector3(4, 4.5, -10), Vector3(7, 3, 12), Vector3(6, 3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftWing/InnerFeather:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.5, 14, 30), Vector3(7.5, 14, 26), Vector3(5.5, 14, 33.5), Vector3(7, 14, 27.5), Vector3(6.5, 14, 30)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightWing/InnerFeather:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.5, -14, -30), Vector3(7.5, -14, -26), Vector3(5.5, -14, -33.5), Vector3(7, -14, -27.5), Vector3(6.5, -14, -30)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LeftWing/OuterFeather:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(13, 20, 48), Vector3(14.5, 20, 41), Vector3(10.5, 20, 54.5), Vector3(13.5, 20, 43.5), Vector3(13, 20, 48)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightWing/OuterFeather:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(13, -20, -48), Vector3(14.5, -20, -41), Vector3(10.5, -20, -54.5), Vector3(13.5, -20, -43.5), Vector3(13, -20, -48)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LeftWing/CoverFeather:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-18, 8, 12), Vector3(-18, 8, 10), Vector3(-18, 8, 14), Vector3(-18, 8, 10.5), Vector3(-18, 8, 12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RightWing/CoverFeather:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-18, -8, -12), Vector3(-18, -8, -10), Vector3(-18, -8, -14), Vector3(-18, -8, -10.5), Vector3(-18, -8, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flutter"]
+_data = {
+&"flutter": SubResource("Animation_flutter")
+}
+
+[node name="Wings" type="Node3D"]
+
+[node name="Mount" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mount")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="LeftWing" type="Node3D" parent="."]
+position = Vector3(-0.08, 0.01, 0.01)
+
+[node name="Shoulder" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.03, 0.02, 0)
+mesh = SubResource("SphereMesh_joint")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="UpperArm" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.13, 0.045, 0.015)
+rotation_degrees = Vector3(8, 14, 62)
+mesh = SubResource("CylinderMesh_arm")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="Forearm" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.255, 0.005, 0.045)
+rotation_degrees = Vector3(12, 24, 30)
+mesh = SubResource("CylinderMesh_tip")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="CoverFeather" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.09, 0.085, 0.03)
+rotation_degrees = Vector3(-18, 8, 12)
+mesh = SubResource("PrismMesh_cover")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="InnerFeather" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.15, 0.015, 0.015)
+rotation_degrees = Vector3(6, 14, 30)
+mesh = SubResource("PrismMesh_inner")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="OuterFeather" type="MeshInstance3D" parent="LeftWing"]
+position = Vector3(-0.275, -0.015, 0.055)
+rotation_degrees = Vector3(12, 20, 48)
+mesh = SubResource("PrismMesh_outer")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="RightWing" type="Node3D" parent="."]
+position = Vector3(0.08, 0.01, 0.01)
+
+[node name="Shoulder" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.03, 0.02, 0)
+mesh = SubResource("SphereMesh_joint")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="UpperArm" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.13, 0.045, 0.015)
+rotation_degrees = Vector3(8, -14, -62)
+mesh = SubResource("CylinderMesh_arm")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="Forearm" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.255, 0.005, 0.045)
+rotation_degrees = Vector3(12, -24, -30)
+mesh = SubResource("CylinderMesh_tip")
+material_override = SubResource("StandardMaterial3D_frame")
+
+[node name="CoverFeather" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.09, 0.085, 0.03)
+rotation_degrees = Vector3(-18, -8, -12)
+mesh = SubResource("PrismMesh_cover")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="InnerFeather" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.15, 0.015, 0.015)
+rotation_degrees = Vector3(6, -14, -30)
+mesh = SubResource("PrismMesh_inner")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="OuterFeather" type="MeshInstance3D" parent="RightWing"]
+position = Vector3(0.275, -0.015, 0.055)
+rotation_degrees = Vector3(12, -20, -48)
+mesh = SubResource("PrismMesh_outer")
+material_override = SubResource("StandardMaterial3D_feather")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_flutter")
+}
+autoplay = "flutter"
