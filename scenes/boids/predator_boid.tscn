@@ -33,8 +33,10 @@ metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Pursue" type="Node" parent="." unique_id=1256996296]
 script = ExtResource("2_agobk")
+draw_gizmos = false
 metadata/_custom_type_script = "uid://bxubkwmvp5e0a"
 
 [node name="Wander" type="Node" parent="." unique_id=1523825428]
 script = ExtResource("3_t127c")
+draw_gizmos = false
 metadata/_custom_type_script = "uid://ji4ehh7ttjod"
