@@ -20,6 +20,35 @@ emission_energy_multiplier = 1.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pw220"]
 points = PackedVector3Array(0, 0.15, 0.15, 0.15, -0.15, 0.15, 0, 0.15, -0.15, -0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, -0.15, -0.15)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vf2rt"]
+direction = Vector3(0, 0, -1)
+spread = 40.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.9
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -0.2
+radial_accel_max = 0.2
+damping_min = 3.0
+damping_max = 5.0
+scale_min = 0.15
+scale_max = 0.3
+color = Color(1, 0.27450982, 0.9098039, 1)
+hue_variation_min = -0.02
+hue_variation_max = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf2rt"]
+transparency = 1
+blend_mode = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.18039216, 0, 0.52156866, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vf2rt"]
+material = SubResource("StandardMaterial3D_vf2rt")
+radius = 0.24
+height = 0.36
+
 [node name="FollowerSpaceBee" type="CharacterBody3D" unique_id=327748852]
 script = ExtResource("1_afqjk")
 draw_gizmos = false
@@ -65,3 +94,15 @@ metadata/_custom_type_script = "uid://dbs1iuji2espn"
 script = ExtResource("7_afqjk")
 draw_gizmos = false
 metadata/_custom_type_script = "uid://ji4ehh7ttjod"
+
+[node name="Particles" type="Node3D" parent="." unique_id=1461012450]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=1985539471]
+amount = 140
+lifetime = 0.55
+preprocess = 0.15
+randomness = 0.35
+fixed_fps = 120
+visibility_aabb = AABB(-6, -6, -6, 12, 12, 12)
+process_material = SubResource("ParticleProcessMaterial_vf2rt")
+draw_pass_1 = SubResource("SphereMesh_vf2rt")
