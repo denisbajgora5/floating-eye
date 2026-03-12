@@ -11,6 +11,7 @@ var behaviors = []
 @export var max_force = 10
 @export var banking = 0.1
 @export var damping = 0.1
+@export var steering_response = 8.0
 
 @export var neighbor_distance: float = 40.0
 @export var max_neighbors: int = 10
@@ -178,8 +179,9 @@ func _physics_process(delta):
 	# lerp in the new forces
 	if should_calculate:
 		new_force = calculate()
-		should_calculate = false		
-	force = lerp(force, new_force, delta)
+		should_calculate = false
+	var force_blend = clamp(delta * steering_response, 0.0, 1.0)
+	force = force.lerp(new_force, force_blend)
 	if ! pause:
 		acceleration = force / mass
 		vel += acceleration * delta
@@ -192,10 +194,13 @@ func _physics_process(delta):
 			# Damping
 			vel -= vel * delta * damping
 			
-			set_velocity(vel)
+			velocity = vel
 			move_and_slide()
+			vel = velocity
+			speed = vel.length()
 			
 			# Implement Banking as described:
 			# https://www.cs.toronto.edu/~dt/siggraph97-course/cwr87/
-			var temp_up = global_transform.basis.y.lerp(Vector3.UP + (acceleration * banking), delta * 5.0)
-			look_at(global_transform.origin - vel.normalized(), temp_up)
+			if not vel.is_zero_approx():
+				var temp_up = global_transform.basis.y.lerp(Vector3.UP + (acceleration * banking), delta * 5.0)
+				look_at(global_transform.origin - vel.normalized(), temp_up)
