@@ -30,6 +30,7 @@ metadata/_custom_type_script = "uid://ji4ehh7ttjod"
 [node name="Avoidance" type="Node" parent="." unique_id=572418138]
 script = ExtResource("6_c7ln2")
 weight = 5.0
+draw_gizmos = false
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
 [node name="Flee" type="Node" parent="." unique_id=1703878069]
