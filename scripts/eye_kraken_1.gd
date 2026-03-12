@@ -119,11 +119,7 @@ func arrive_force(target:Vector3, slowingDistance:float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for individual_leg in $legs.get_children():
-		var player = individual_leg.get_node_or_null("AnimationPlayer")
-		if player:
-			var name_of_animation = individual_leg.name + "_animation"
-			player.play(name_of_animation)
+	
 	# Check for a variable
 	if "partition" in get_parent():
 		school = get_parent()
@@ -164,8 +160,17 @@ func calculate():
 		DebugDraw2D.set_text(name, behaviors_active)
 	return force_acc
 
-
+var initialised = false
 func _process(delta):
+	if not initialised:
+		var legs = ["leg1","leg2","leg3","leg4"]
+		var animation_name = "leg_animations"
+		if $AnimationPlayer.get_animation(animation_name):
+			for a in range($AnimationPlayer.get_animation(animation_name).get_track_count()):
+				$AnimationPlayer.get_animation(animation_name).track_set_path(a,"../legs/" + legs[a] + ":rotation_degrees")
+	
+		$AnimationPlayer.play("leg_animations")
+		initialised = true
 	should_calculate = true
 	pause = false
 	if draw_gizmos:
