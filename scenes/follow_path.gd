@@ -3,7 +3,7 @@ class_name FollowPath extends SteeringBehavior
 var pathIndex = 0
 
 @export var path:Path3D
-@export var waypoint_seek_distance = 3
+@export var waypoint_seek_distance = 5
 
 var target
 

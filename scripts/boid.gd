@@ -8,9 +8,9 @@ class_name Boid extends CharacterBody3D
 @export var max_speed: float = 5.0
 
 var behaviors = [] 
-@export var max_force = 10
+@export var max_force = 20
 @export var banking = 0.1
-@export var damping = 0.1
+@export var damping = 0.02
 
 @export var draw_gizmos = true
 @export var pause = false
