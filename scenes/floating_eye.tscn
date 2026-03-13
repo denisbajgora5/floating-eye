@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c420gekqhca25" path="res://scenes/avoidance.gd" id="7_2nsk1"]
 [ext_resource type="PackedScene" uid="uid://8uq6ycxya2gq" path="res://legs.tscn" id="8_yrq5d"]
 [ext_resource type="Script" uid="uid://dv40oamatiris" path="res://scenes/mesh_instance_3d.gd" id="9_bttbs"]
+[ext_resource type="Script" uid="uid://u6uwttto0a3e" path="res://scenes/follow_path.gd" id="9_nqcgr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0stm"]
 resource_name = "KRAKEN-EYE"
@@ -320,6 +321,11 @@ preprocess = 1.27
 randomness = 0.15
 process_material = SubResource("ParticleProcessMaterial_yrq5d")
 draw_pass_1 = SubResource("SphereMesh_560xh")
+
+[node name="FollowPath" type="Node" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=2049937401 node_paths=PackedStringArray("path")]
+script = ExtResource("9_nqcgr")
+path = NodePath("../../../../../Path3D")
+weight = 6.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1883209332]
 stream = ExtResource("4_r231x")
