@@ -291,22 +291,22 @@ feeler_length = 12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
 
 [node name="leg1" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="0" unique_id=511626828]
-transform = Transform3D(0.99236155, -0.12336302, 0, 0.12336302, 0.99236155, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg1" index="0" unique_id=2046494154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7346319, 0, -0.392739)
 
 [node name="leg2" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="1" unique_id=104580627]
-transform = Transform3D(0.99236155, 0.123363025, 0, -0.123363025, 0.99236155, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="leg3" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="2" unique_id=1517146521]
-transform = Transform3D(0.9923616, 0.12336302, 0, -0.12336302, 0.9923616, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
 
 [node name="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs/leg3" index="0" unique_id=1184663624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83852464, 0, -0.4619552)
 
 [node name="leg4" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" index="3" unique_id=1422911312]
-transform = Transform3D(0.9923616, -0.12336302, 0, 0.12336302, 0.9923616, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" unique_id=1513805035]
 reset_on_save = false
