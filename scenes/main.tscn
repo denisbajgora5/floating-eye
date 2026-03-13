@@ -109,16 +109,16 @@ draw_gizmos = false
 draw_gizmos = false
 
 [node name="leg1" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="0" unique_id=511626828]
-transform = Transform3D(0.93969256, -0.3420201, 0, 0.3420201, 0.93969256, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.9999294, -0.011877256, 0, 0.011877256, 0.9999294, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="leg2" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="1" unique_id=104580627]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
+transform = Transform3D(0.9999294, 0.011877267, 0, -0.011877267, 0.9999294, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="leg3" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="2" unique_id=1517146521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
+transform = Transform3D(0.9999295, 0.011877267, 0, -0.011877267, 0.9999295, 0, 0, 0, 1, 0.11833477, 0.040647343, 1.4901161e-08)
 
 [node name="leg4" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="3" unique_id=1422911312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
+transform = Transform3D(0.9999295, -0.011877267, 0, 0.011877267, 0.9999295, 0, 0, 0, 1, 0.6587498, -0.06806517, 0.34158581)
 
 [node name="Player" parent="." unique_id=236532492 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)

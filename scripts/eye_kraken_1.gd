@@ -8,9 +8,9 @@ class_name Boid extends CharacterBody3D
 @export var max_speed: float = 5.0
 
 var behaviors = [] 
-@export var max_force = 10
+@export var max_force = 20
 @export var banking = 0.1
-@export var damping = 0.1
+@export var damping = 0.05
 
 @export var draw_gizmos = true
 @export var pause = false
@@ -121,7 +121,10 @@ func arrive_force(target:Vector3, slowingDistance:float):
 var behaviours_label
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	await get_tree().process_frame
 	behaviours_label = get_tree().root.get_node("main/CanvasLayer/Label3D")
+	behaviours_label.modulate = Color(0,1,1)
+	behaviours_label.font_size = 20
 	# Check for a variable
 	if "partition" in get_parent():
 		school = get_parent()
@@ -157,11 +160,8 @@ func calculate():
 			if force_acc.length() > max_force:
 				force_acc = force_acc.limit_length(max_force)
 				behaviors_active += " Limiting force"
-				break
 	if draw_gizmos:
-		behaviours_label.text += name + ":" + behaviors_active
-		behaviours_label.modulate = Color(0,1,1)
-		behaviours_label.font_size = 20
+		behaviours_label.text = name + ":" + behaviors_active
 	return force_acc
 
 var initialised = false
@@ -169,11 +169,10 @@ func _process(delta):
 	if not initialised:
 		var legs = ["leg1","leg2","leg3","leg4"]
 		var animation_name = "leg_animations"
-		if $AnimationPlayer.get_animation(animation_name):
+		if $AnimationPlayer and $AnimationPlayer.has_animation(animation_name):
 			for a in range($AnimationPlayer.get_animation(animation_name).get_track_count()):
 				$AnimationPlayer.get_animation(animation_name).track_set_path(a,"../legs/" + legs[a] + ":rotation_degrees")
-	
-		$AnimationPlayer.play("leg_animations")
+		
 		initialised = true
 	should_calculate = true
 	pause = false
@@ -186,6 +185,13 @@ func _process(delta):
 			count_neighbors_simple()
 			
 func _physics_process(delta):
+	var on_ground = is_on_floor()
+	if $AnimationPlayer:
+		if on_ground:
+			if vel.length() > 0:
+				$AnimationPlayer.play("leg_animations")
+		else:
+			$AnimationPlayer.stop()
 	# pause = true
 	# lerp in the new forces
 	if should_calculate:
