@@ -78,7 +78,7 @@ abc2
 2. Load the main scene:
 3. You can use WASD or Arrow Keys to move around.
 4. ` Key can be used to fly around in freeform.
-5. G Key will be used to turn on and off Gizmos.
+5. G Key will be used to turn on and off Gizmos and the Path for the Eye.
 
 ---
 
@@ -101,7 +101,19 @@ abc2
 
 ### AI Prompts
 
-- **Dummy:** How to make x
+- How to make the boid follow a path.
+- How to set s color for a mesh.
+- How does avoidance work?
+- Can you suggest a design for the background boids.
+- Whats a good particle effect for a boid?
+- Should the floating eye boid have a cool particle effect?
+- How to make a floating eye follow a path.
+- How to set ponits around the map using path follow 3d
+- why does my floating boid go around in a circle.
+- Why does my floating boid go into the air and never come back.
+- Why does the floor model look glitchy.
+- How do i fix the predator and prey keep bashing into walls.
+- So how to make the leader boid not go into the tree.
 
 ---
 
@@ -133,7 +145,13 @@ abc2
 ## ⭐ What We’re Most Proud Of
 
 - **Denis:**  
-  goes here
+  I am most proud of the following features:
+  background boids the way they avoid obsucles.
+  The way the wonder around and do their own thing using Wander was really cool to implement.
+  I am really proud of the way the map turned out it fits really nicely with the sky box.
+  The way the boids are neon like and have particles i am super proud of as it makes them glow really nicely in the sky.
+  I Am also proud of the way i designed the colors of the map and boids the way it looks like an alien planet.
+  The music aswell i am super proud of as it fits the game very nicely espically the background music and floating eye SFX.
 
 - **Jason:**  
   goes here
@@ -143,7 +161,7 @@ abc2
 ## 📖 What We Learned
 
 - **Denis:**  
-  goes here
+  I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking proiorty.
 
 - **Jason:**  
   goes here
