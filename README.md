@@ -60,13 +60,17 @@ This behavior exists in the background and is separate from the main autonomous 
 
 ## 🖼️ Screenshots
 
-![screenshot1](./images/screenshot1.png)
+![map](./images/map.png)
 
 abc
 
-![screnshot2](./images/screenshot2.png)
+![leaderAndFollower](./images/leaderAndFollower.png)
 
 abc2
+
+![PredatorAndPrey](./images/PredatorAndPrey.png)
+
+abc
 
 ---
 
