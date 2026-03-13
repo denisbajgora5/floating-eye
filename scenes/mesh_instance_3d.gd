@@ -26,8 +26,6 @@ func _ready() -> void:
 		the_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_LINE_STRIP,mesh_arrays
 		)
 		
-		the_mesh.custom_aabb = AABB(Vector3(-1000, -1000, -1000), Vector3(2000, 2000, 2000))
-
 		
 		var mat := StandardMaterial3D.new()
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
