@@ -21,6 +21,7 @@ var neighbors = []
 var school = null
 var new_force = Vector3.ZERO
 var should_calculate = false
+var label: Label3D
 
 	
 
@@ -116,10 +117,11 @@ func arrive_force(target:Vector3, slowingDistance:float):
 	var limit_length = min(max_speed, ramped)
 	var desired = (toTarget * limit_length) / dist 
 	return desired - vel
-
+	
+var behaviours_label
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	behaviours_label = get_tree().root.get_node("main/CanvasLayer/Label3D")
 	# Check for a variable
 	if "partition" in get_parent():
 		school = get_parent()
@@ -157,7 +159,9 @@ func calculate():
 				behaviors_active += " Limiting force"
 				break
 	if draw_gizmos:
-		DebugDraw2D.set_text(name, behaviors_active)
+		behaviours_label.text += name + ":" + behaviors_active
+		behaviours_label.modulate = Color(0,1,1)
+		behaviours_label.font_size = 20
 	return force_acc
 
 var initialised = false
