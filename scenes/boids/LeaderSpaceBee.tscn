@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://ck5rjin4clic5"]
 
-[ext_resource type="Script" uid="uid://c3cj0qwdcwhya" path="res://scripts/eye_kraken_1.gd" id="1_f0fbq"]
+[ext_resource type="Script" uid="uid://b5bg7qtlop6pu" path="res://scripts/leader.gd" id="1_jmkox"]
 [ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="2_ysdg8"]
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="3_d7xpu"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_5bi3n"]
 size = Vector3(0.95, 0.95, 1.45)
-
-[sub_resource type="PrismMesh" id="PrismMesh_glow"]
-size = Vector3(1.25, 1.25, 1.85)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdg8"]
 albedo_color = Color(1, 0.12156863, 0.90588236, 1)
@@ -18,18 +15,18 @@ emission_enabled = true
 emission = Color(1, 0.12156863, 0.90588236, 1)
 emission_energy_multiplier = 6.0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmkox"]
+points = PackedVector3Array(0, 0.25, 0.25, 0.25, -0.25, 0.25, 0, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
+
+[sub_resource type="PrismMesh" id="PrismMesh_glow"]
+size = Vector3(1.25, 1.25, 1.85)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glow"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
 cull_mode = 2
+shading_mode = 0
 albedo_color = Color(1, 0.6, 0.98039216, 0.32)
-emission_enabled = true
-emission = Color(1, 0.6, 0.98039216, 1)
-emission_energy_multiplier = 7.0
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmkox"]
-points = PackedVector3Array(0, 0.25, 0.25, 0.25, -0.25, 0.25, 0, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jmkox"]
 direction = Vector3(0, 0, -1)
@@ -61,8 +58,7 @@ radius = 0.3
 height = 0.45
 
 [node name="LeaderSpaceBee" type="CharacterBody3D" unique_id=181819984]
-script = ExtResource("1_f0fbq")
-draw_gizmos = false
+script = ExtResource("1_jmkox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778336461]
 mesh = SubResource("PrismMesh_5bi3n")
