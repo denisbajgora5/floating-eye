@@ -54,7 +54,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6, -3, 0), Vector3(7.5, -2.5, -16), Vector3(4, -4.5, 10), Vector3(7, -3, -12), Vector3(6, -3, 0)]
+"values": [Vector3(7, -4, 0), Vector3(11, -2, -24), Vector3(3, -6, 16), Vector3(9, -3, -18), Vector3(7, -4, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +66,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6, 3, 0), Vector3(7.5, 2.5, 16), Vector3(4, 4.5, -10), Vector3(7, 3, 12), Vector3(6, 3, 0)]
+"values": [Vector3(7, 4, 0), Vector3(11, 2, 24), Vector3(3, 6, -16), Vector3(9, 3, 18), Vector3(7, 4, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -78,7 +78,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6.5, 14, 30), Vector3(7.5, 14, 26), Vector3(5.5, 14, 33.5), Vector3(7, 14, 27.5), Vector3(6.5, 14, 30)]
+"values": [Vector3(7, 16, 32), Vector3(9, 16, 25), Vector3(4.5, 16, 38), Vector3(8, 16, 27), Vector3(7, 16, 32)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -90,7 +90,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6.5, -14, -30), Vector3(7.5, -14, -26), Vector3(5.5, -14, -33.5), Vector3(7, -14, -27.5), Vector3(6.5, -14, -30)]
+"values": [Vector3(7, -16, -32), Vector3(9, -16, -25), Vector3(4.5, -16, -38), Vector3(8, -16, -27), Vector3(7, -16, -32)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -102,7 +102,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(13, 20, 48), Vector3(14.5, 20, 41), Vector3(10.5, 20, 54.5), Vector3(13.5, 20, 43.5), Vector3(13, 20, 48)]
+"values": [Vector3(14, 22, 52), Vector3(17, 22, 42), Vector3(9, 22, 61), Vector3(15, 22, 45), Vector3(14, 22, 52)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -114,7 +114,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(13, -20, -48), Vector3(14.5, -20, -41), Vector3(10.5, -20, -54.5), Vector3(13.5, -20, -43.5), Vector3(13, -20, -48)]
+"values": [Vector3(14, -22, -52), Vector3(17, -22, -42), Vector3(9, -22, -61), Vector3(15, -22, -45), Vector3(14, -22, -52)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -126,7 +126,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-18, 8, 12), Vector3(-18, 8, 10), Vector3(-18, 8, 14), Vector3(-18, 8, 10.5), Vector3(-18, 8, 12)]
+"values": [Vector3(-20, 10, 14), Vector3(-20, 10, 9), Vector3(-20, 10, 17), Vector3(-20, 10, 10.5), Vector3(-20, 10, 14)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -138,7 +138,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-18, -8, -12), Vector3(-18, -8, -10), Vector3(-18, -8, -14), Vector3(-18, -8, -10.5), Vector3(-18, -8, -12)]
+"values": [Vector3(-20, -10, -14), Vector3(-20, -10, -9), Vector3(-20, -10, -17), Vector3(-20, -10, -10.5), Vector3(-20, -10, -14)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_flutter"]
@@ -233,4 +233,5 @@ root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_flutter")
 }
+speed_scale = 1.35
 autoplay = "flutter"
