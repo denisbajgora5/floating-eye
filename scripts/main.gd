@@ -4,11 +4,11 @@ const BOID_GIZMO_GROUP := "boid_gizmo_roots"
 const FLOATING_EYE_PATH_MESH_PATH := "floating_eye/Path3D/MeshInstance3D"
 
 var gizmos_enabled := false
-var floating_eye_path_visible := true
+var floating_eye_path_visible := false
 
 func _ready() -> void:
 	gizmos_enabled = _has_visible_boid_gizmos()
-	floating_eye_path_visible = _has_visible_floating_eye_path()
+	_set_floating_eye_path_visible(false)
 	_update_gizmo_label_visibility(gizmos_enabled)
 
 
@@ -46,11 +46,6 @@ func _set_floating_eye_path_visible(visible: bool) -> void:
 	var path_mesh := get_node_or_null(FLOATING_EYE_PATH_MESH_PATH) as MeshInstance3D
 	if path_mesh:
 		path_mesh.visible = visible
-
-
-func _has_visible_floating_eye_path() -> bool:
-	var path_mesh := get_node_or_null(FLOATING_EYE_PATH_MESH_PATH) as MeshInstance3D
-	return path_mesh == null or path_mesh.visible
 
 
 func _update_gizmo_label_visibility(enabled: bool) -> void:
