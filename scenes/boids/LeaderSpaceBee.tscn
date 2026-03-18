@@ -59,6 +59,7 @@ height = 0.45
 
 [node name="LeaderSpaceBee" type="CharacterBody3D" unique_id=181819984]
 script = ExtResource("1_jmkox")
+draw_gizmos = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778336461]
 mesh = SubResource("PrismMesh_5bi3n")
