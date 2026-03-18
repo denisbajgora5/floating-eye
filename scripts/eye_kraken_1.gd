@@ -104,8 +104,6 @@ var behaviours_label
 func _ready():
 	await get_tree().process_frame
 	behaviours_label = get_tree().root.get_node("main/CanvasLayer/Label3D")
-	behaviours_label.modulate = Color(0,1,1)
-	behaviours_label.font_size = 20
 	# Check for a variable
 	if "partition" in get_parent():
 		school = get_parent()
