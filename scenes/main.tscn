@@ -341,6 +341,7 @@ enemy_path = NodePath("../../Predator")
 [node name="Label3D" type="Label3D" parent="CanvasLayer" unique_id=1772732288]
 
 [node name="KrakenEye" parent="." unique_id=1473132701 instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.916077, 0)
 
 [editable path="SpaceBees/Group-1/FollowerSpaceBee"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee2"]

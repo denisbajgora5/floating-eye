@@ -5,9 +5,69 @@
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="3_d7xpu"]
 [ext_resource type="PackedScene" uid="uid://ct3yaux8aireh" path="res://assets/models/character_models/kraken_eyeball_-_blender_file.glb" id="4_m8n2w"]
 [ext_resource type="AudioStream" uid="uid://d06xhosuqy5x2" path="res://assets/music/eye_background.wav" id="5_4dx1x"]
+[ext_resource type="PackedScene" uid="uid://8uq6ycxya2gq" path="res://legs.tscn" id="6_legs"]
+[ext_resource type="PackedScene" path="res://scenes/wings.tscn" id="7_wings"]
+[ext_resource type="Script" uid="uid://d3hrntd3ihfjh" path="res://scripts/kraken_eye_visual_controller.gd" id="8_state"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7j4d1"]
 radius = 0.75192434
+
+[sub_resource type="Animation" id="Animation_legs"]
+resource_name = "leg_animations"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("legs/leg1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 3.3635848, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.6981317), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.2617994), Vector3(0, 0, -0.08726646), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("legs/leg4:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.40000004, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004, 0.9333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.6981317), Vector3(0, 0, 0.5235988), Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.08726646), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.5235988), Vector3(0, 0, -0.2617994), Vector3(0, 0, -0.08726646)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("legs/leg3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.40000004, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004, 0.9333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.5235988), Vector3(0, 0, -0.6981317), Vector3(0, 0, -0.34906584), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.08726646), Vector3(0, 0, 0.2617994), Vector3(0, 0, 0.43633232), Vector3(0, 0, 0.2908881), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("legs/leg2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, -0.43633232), Vector3(0, 0, -0.61086524), Vector3(0, 0, -0.2617994), Vector3(0, 0, 0.08726646), Vector3(0, 0, 0.2617994), Vector3(0, 0, 0.34906584), Vector3(0, 0, 0.17453296), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_legs"]
+_data = {
+&"leg_animations": SubResource("Animation_legs")
+}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eye"]
 lifetime_randomness = 0.22
@@ -64,6 +124,87 @@ weight = 2.5
 draw_gizmos = false
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
+[node name="legs" parent="." unique_id=591453009 instance=ExtResource("6_legs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
+
+[node name="MeshInstance3D" parent="legs/leg1" parent_id_path=PackedInt32Array(591453009, 511626828) index="0" unique_id=2046494154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134727, 19.951117, 0.8665019)
+
+[node name="CollisionShape3D" parent="legs/leg1" parent_id_path=PackedInt32Array(591453009, 511626828) index="1" unique_id=1001480481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134727, 19.951117, 0.8665019)
+
+[node name="MeshInstance3D" parent="legs/leg2" parent_id_path=PackedInt32Array(591453009, 104580627) index="0" unique_id=229353651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134726, 19.951117, 0.8665019)
+
+[node name="CollisionShape3D" parent="legs/leg2" parent_id_path=PackedInt32Array(591453009, 104580627) index="1" unique_id=921028067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134726, 19.951117, 0.8665019)
+
+[node name="MeshInstance3D" parent="legs/leg3" parent_id_path=PackedInt32Array(591453009, 1517146521) index="0" unique_id=1184663624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134727, 19.951117, 0.8665019)
+
+[node name="CollisionShape3D" parent="legs/leg3" parent_id_path=PackedInt32Array(591453009, 1517146521) index="1" unique_id=1440017975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134727, 19.951117, 0.8665019)
+
+[node name="MeshInstance3D" parent="legs/leg4" parent_id_path=PackedInt32Array(591453009, 1422911312) index="0" unique_id=513231750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134723, 19.95111, 0.8665019)
+
+[node name="CollisionShape3D" parent="legs/leg4" parent_id_path=PackedInt32Array(591453009, 1422911312) index="1" unique_id=805161596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5134723, 19.95111, 0.8665019)
+
+[node name="wings" parent="." unique_id=804070931 instance=ExtResource("7_wings")]
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0.13611412, 0.25863874, 0.03481722)
+
+[node name="LeftWing" parent="wings" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.01, 0.01)
+
+[node name="Shoulder" parent="wings/LeftWing" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0.02, 0)
+
+[node name="UpperArm" parent="wings/LeftWing" index="1"]
+transform = Transform3D(0.4852543, -0.8409136, 0.23956753, 0.8743548, 0.46490273, -0.1391731, 0.0056569576, 0.27700138, 0.96085286, -0.13, 0.045, 0.015)
+
+[node name="Forearm" parent="wings/LeftWing" index="2"]
+transform = Transform3D(0.8334362, -0.38353702, 0.3978485, 0.4890738, 0.8471007, -0.2079117, -0.25727588, 0.3678584, 0.8935823, -0.255, 0.005, 0.045)
+
+[node name="CoverFeather" parent="wings/LeftWing" index="3"]
+transform = Transform3D(0.9596867, -0.24795537, 0.13236149, 0.19773579, 0.9302737, 0.309017, -0.19975483, -0.27038687, 0.9418009, -0.09, 0.085, 0.03)
+
+[node name="InnerFeather" parent="wings/LeftWing" index="4"]
+transform = Transform3D(0.8529446, -0.46324804, 0.24059664, 0.49726096, 0.8612812, -0.104528464, -0.15879874, 0.20879629, 0.96498036, -0.15, 0.015, 0.015)
+
+[node name="OuterFeather" parent="wings/LeftWing" index="5"]
+transform = Transform3D(0.681622, -0.65074587, 0.33454618, 0.7269054, 0.6545085, -0.2079117, -0.08366561, 0.38490063, 0.9191581, -0.275, -0.015, 0.055)
+
+[node name="RightWing" parent="wings" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.01, 0.01)
+
+[node name="Shoulder" parent="wings/RightWing" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.02, 0)
+
+[node name="UpperArm" parent="wings/RightWing" index="1"]
+transform = Transform3D(0.4852543, 0.8409136, -0.23956753, -0.8743548, 0.46490273, -0.1391731, -0.0056569576, 0.27700138, 0.96085286, 0.13, 0.045, 0.015)
+
+[node name="Forearm" parent="wings/RightWing" index="2"]
+transform = Transform3D(0.8334362, 0.38353702, -0.3978485, -0.4890738, 0.8471007, -0.2079117, 0.25727588, 0.3678584, 0.8935823, 0.255, 0.005, 0.045)
+
+[node name="CoverFeather" parent="wings/RightWing" index="3"]
+transform = Transform3D(0.9596867, 0.24795537, -0.13236149, -0.19773579, 0.9302737, 0.309017, 0.19975483, -0.27038687, 0.9418009, 0.09, 0.085, 0.03)
+
+[node name="InnerFeather" parent="wings/RightWing" index="4"]
+transform = Transform3D(0.8529446, 0.46324804, -0.24059664, -0.49726096, 0.8612812, -0.104528464, 0.15879874, 0.20879629, 0.96498036, 0.15, 0.015, 0.015)
+
+[node name="OuterFeather" parent="wings/RightWing" index="5"]
+transform = Transform3D(0.681622, 0.65074587, -0.33454618, -0.7269054, 0.6545085, -0.2079117, 0.08366561, 0.38490063, 0.9191581, 0.275, -0.015, 0.055)
+
+[node name="AnimationPlayer" parent="wings" index="3"]
+autoplay = &"flutter"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1998473094]
+libraries/ = SubResource("AnimationLibrary_legs")
+
+[node name="VisualStateController" type="Node" parent="." unique_id=1722773363]
+script = ExtResource("8_state")
+
 [node name="Sketchfab_model_root_GLTF_SceneRootNode_eye-kraken_1#GPUParticles3D" type="GPUParticles3D" parent="." unique_id=341517099]
 transparency = 0.28
 amount = 20
@@ -78,3 +219,5 @@ stream = ExtResource("5_4dx1x")
 autoplay = true
 
 [editable path="Sketchfab_model"]
+[editable path="legs"]
+[editable path="wings"]
