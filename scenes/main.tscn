@@ -97,6 +97,7 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=236532492 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)
+respawn_map_path = NodePath("../GridMap")
 
 [node name="GridMap" parent="." unique_id=1221069410 instance=ExtResource("4_jyhfs")]
 

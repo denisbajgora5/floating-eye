@@ -28,6 +28,13 @@ extends CharacterBody3D
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 
+@export_group("Fall Reset")
+## Teleport back after falling this far below the respawn height.
+@export var fall_reset_enabled : bool = true
+@export var fall_reset_distance : float = 25.0
+## Optional GridMap used to derive the center of the map for respawning.
+@export var respawn_map_path : NodePath
+
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
 @export var input_left : String = "ui_left"
@@ -48,6 +55,7 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var respawn_position : Vector3 = Vector3.ZERO
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -57,6 +65,7 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	_configure_respawn_position()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -77,6 +86,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			disable_freefly()
 
 func _physics_process(delta: float) -> void:
+	if _should_reset_after_fall():
+		_reset_after_fall()
+		return
+
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -118,6 +131,9 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 
+	if _should_reset_after_fall():
+		_reset_after_fall()
+
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
@@ -150,6 +166,65 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+
+
+func _configure_respawn_position() -> void:
+	respawn_position = global_position
+
+	var grid_map := _find_respawn_grid_map()
+	if grid_map == null:
+		return
+
+	var map_center := _get_grid_map_center(grid_map)
+	respawn_position.x = map_center.x
+	respawn_position.z = map_center.z
+
+
+func _find_respawn_grid_map() -> GridMap:
+	if not respawn_map_path.is_empty():
+		var configured_grid_map := get_node_or_null(respawn_map_path) as GridMap
+		if configured_grid_map:
+			return configured_grid_map
+
+	var current_scene := get_tree().current_scene
+	if current_scene:
+		return current_scene.find_child("GridMap", true, false) as GridMap
+
+	return null
+
+
+func _get_grid_map_center(grid_map: GridMap) -> Vector3:
+	var used_cells := grid_map.get_used_cells()
+	if used_cells.is_empty():
+		return respawn_position
+
+	var min_cell: Vector3i = used_cells[0]
+	var max_cell: Vector3i = used_cells[0]
+
+	for cell in used_cells:
+		min_cell.x = mini(min_cell.x, cell.x)
+		min_cell.y = mini(min_cell.y, cell.y)
+		min_cell.z = mini(min_cell.z, cell.z)
+		max_cell.x = maxi(max_cell.x, cell.x)
+		max_cell.y = maxi(max_cell.y, cell.y)
+		max_cell.z = maxi(max_cell.z, cell.z)
+
+	# Average the outermost used cell centers so respawn stays centered even if the map grows.
+	var min_world := grid_map.to_global(grid_map.map_to_local(min_cell))
+	var max_world := grid_map.to_global(grid_map.map_to_local(max_cell))
+	return (min_world + max_world) * 0.5
+
+
+func _should_reset_after_fall() -> bool:
+	if not fall_reset_enabled or freeflying:
+		return false
+
+	return global_position.y <= respawn_position.y - fall_reset_distance
+
+
+func _reset_after_fall() -> void:
+	global_position = respawn_position
+	velocity = Vector3.ZERO
 
 
 ## Checks if some Input Actions haven't been created.
