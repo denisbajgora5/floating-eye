@@ -83,25 +83,64 @@ abc
 ### First Person Mode
 
 1. Open the project in **Godot 4.x**
-2. Load the main scene:
-3. You can use WASD or Arrow Keys to move around.
-4. ` Key can be used to fly around in freeform.
-5. G Key will be used to turn on and off Gizmos and the Path for the Eye.
+2. Load the main scene: `scenes/main.tscn`
+3. Left click to capture the mouse. Press `Esc` to release it.
+4. Use `WASD` or the Arrow Keys to move, `Space` to jump, and `Shift` to sprint.
+5. Press `` ` `` to toggle freefly mode.
+6. Press `G` to toggle steering gizmos and `H` to toggle the floating eye path display.
 
 ---
 
 ## ⚙️ How It Works
 
 - **`scripts/main.gd`**  
-  does x y z
+  Handles scene-level debug controls. It hides the boid gizmos and floating-eye path at startup, toggles gizmos with `G`, toggles the path mesh with `H`, and keeps the on-screen debug label in sync.
+
+- **`scripts/proto_controller.gd`**  
+  Runs the first-person player controller. It manages mouse look, walking, jumping, sprinting, freefly mode, and the fall reset that teleports the player back to the center of the map if they drop too far below the level.
+
+- **`scripts/boid.gd`**  
+  Base steering class for autonomous agents. It collects child steering behaviours, sums their weighted forces, limits the final steering force, applies damping and banking, then moves the boid with `move_and_slide()`.
+
+- **`scenes/follow_path.gd`**  
+  Makes the main floating eye follow a `Path3D` by targeting one waypoint at a time and advancing to the next point when the current point is reached.
+
+- **`scripts/behaviours/avoidance.gd`**  
+  Provides obstacle avoidance using multiple ray probes. When a probe hits something, it generates sidestep, braking, and recovery forces so the boid can steer around the obstacle instead of colliding with it.
+
+- **`scripts/behaviours/alignment.gd`, `cohesion.gd`, `separation.gd`**  
+  Implement the classic flocking rules used by the background followers: align with neighbors, move back toward the group center, and push away when too close.
+
+- **`scripts/behaviours/offSetPursue.gd`**  
+  Keeps follower bees in formation with a leader by storing an offset from the leader and predicting where that offset will be as the leader keeps moving.
+
+- **`scripts/behaviours/predator.gd` and `scripts/prey.gd`**  
+  Control the predator/prey background interaction. The predator swaps between wandering and chasing based on distance, while the prey adds a panic flee force when the predator gets too close.
+
+- **`scripts/eye_kraken_1.gd` and `scripts/kraken_eye_visual_controller.gd`**  
+  Control the main Kraken eye boid and its presentation. These scripts update the debug label, drive movement using steering forces, play leg animations when grounded, and flap the wings while airborne.
 
 ---
 
 ## 📦 Classes & Assets
 
-| Class / Asset           | Source                          |
-| ----------------------- | ------------------------------- |
-| `scripts/main.gd` (x y) | Self written (ChatGPT assisted) |
+| Class / Asset | Purpose in Project | Source |
+| --- | --- | --- |
+| `scripts/main.gd` | Main scene controller for debug toggles, gizmo visibility, and the floating-eye path display. | Self written (ChatGPT assisted) |
+| `scripts/proto_controller.gd` | First-person player controller with walking, jump, sprint, freefly, and fall-reset respawn logic. | Based on Brackeys Proto Controller, then extended for this project |
+| `scripts/boid.gd` | Shared steering/movement base for autonomous agents. | Self written (ChatGPT assisted) |
+| `scripts/leader.gd` | Leader boid used by the background space-bee formations. | Self written (ChatGPT assisted) |
+| `scripts/behaviours/follower.gd` | Shared follower movement base used by escort bees, predator, and prey. | Self written (ChatGPT assisted) |
+| `scenes/follow_path.gd` | Steering behaviour for following a `Path3D`. | Self written (ChatGPT assisted) |
+| `scripts/behaviours/avoidance.gd` | Raycast-based obstacle avoidance for boids. | Self written (ChatGPT assisted) |
+| `scripts/behaviours/alignment.gd`, `cohesion.gd`, `separation.gd` | Flocking behaviours for swarm motion. | Self written (ChatGPT assisted) |
+| `scripts/behaviours/offSetPursue.gd`, `pursue.gd`, `arrive.gd`, `flee.gd`, `wander.gd` | Core steering behaviours used across the AI agents. | Self written (ChatGPT assisted) |
+| `scripts/behaviours/predator.gd` and `scripts/prey.gd` | Distance-based predator/prey AI for the background encounter. | Self written (ChatGPT assisted) |
+| `scripts/eye_kraken_1.gd` and `scripts/kraken_eye_visual_controller.gd` | Main floating-eye movement and animation control. | Self written (ChatGPT assisted) |
+| `scenes/map.tscn` and `mesh_library.tres` | GridMap terrain layout and reusable environment tiles. | Built in-project using KayKit BlockBits assets |
+| `scenes/boids/krakenEye.tscn` | Main autonomous eye scene. | Built in-project using the Sketchfab eye model |
+| `assets/skybox/nebula/*` | Space skybox textures used by the `WorldEnvironment`. | Jettelly space skybox pack |
+| `addons/debug_draw_3d` | Debug drawing tools for steering vectors, neighbor ranges, and avoidance probes. | External Godot addon |
 
 ---
 
