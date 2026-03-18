@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cbwd14052lpbg"]
 
-[ext_resource type="PackedScene" uid="uid://byersijr0cnkn" path="res://scenes/floating_eye.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://duot2p6tad2k7" path="res://scripts/main.gd" id="2_ntf5c"]
 [ext_resource type="PackedScene" uid="uid://i51dasygf6xl" path="res://scenes/proto_controller.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnxptk67jbpgg" path="res://scenes/map.tscn" id="4_jyhfs"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://em0x2aoff5in" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_UP.png" id="12_kk4lj"]
 [ext_resource type="Texture2D" uid="uid://cekc5gpcnf5oy" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_DOWN.png" id="13_ggblb"]
 [ext_resource type="Texture2D" uid="uid://dt3vohldl5xn6" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_FRONT.png" id="14_3ivw4"]
+[ext_resource type="PackedScene" uid="uid://k37lutwho1kj" path="res://scenes/boids/krakenEye.tscn" id="14_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://bi1j6vd5b3oy3" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_BACK.png" id="15_sibmn"]
 
 [sub_resource type="Shader" id="Shader_y7h4u"]
@@ -94,16 +94,6 @@ environment = SubResource("Environment_jyhfs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=112237138]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="floating_eye" parent="." unique_id=1348206956 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3.0931387, 44.316345)
-
-[node name="leg2" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="1" unique_id=104580627]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
-
-[node name="Path3D" parent="floating_eye" index="2" unique_id=832784099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.58367, 6.177952, -37.348278)
-debug_custom_color = Color(0, 1, 0.92156863, 1)
 
 [node name="Player" parent="." unique_id=236532492 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)
@@ -350,9 +340,8 @@ enemy_path = NodePath("../../Predator")
 
 [node name="Label3D" type="Label3D" parent="CanvasLayer" unique_id=1772732288]
 
-[editable path="floating_eye"]
-[editable path="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs"]
-[editable path="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/wings"]
+[node name="KrakenEye" parent="." unique_id=1473132701 instance=ExtResource("14_a8y0u")]
+
 [editable path="SpaceBees/Group-1/FollowerSpaceBee"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee2"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee3"]
