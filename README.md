@@ -62,19 +62,18 @@ This behavior exists in the background and is separate from the main autonomous 
 
 ![map](./images/map.png)
 
-abc
+Image 1: Screenshot of the map
 
 ![leaderAndFollower](./images/leaderAndFollower.png)
 
-abc2
-
+Image 2: Leader and follower boid screenshots
 ![PredatorAndPrey](./images/PredatorAndPrey.png)
 
-abc
+Image 3: Predator and Prey boid screenshots
 
 ![krakenEye](./images/krakenEye.png)
 
-abc
+Image 4: Image of the main Kraken Eye boid
 
 ---
 
@@ -161,6 +160,8 @@ abc
 - Why does the floor model look glitchy.
 - How do i fix the predator and prey keep bashing into walls.
 - So how to make the leader boid not go into the tree.
+- generate the code to change the text color, font and font size of the text in the top left corner
+- make the leg and wing animations work correctly
 
 ---
 
