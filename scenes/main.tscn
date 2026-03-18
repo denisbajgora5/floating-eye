@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwkm83sa46t0" path="res://scenes/boids/follower_space_bee.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c05hi17nvne50" path="res://scenes/boids/predator_boid.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d1rta3b0lngef" path="res://scenes/boids/prey.tscn" id="8_tipki"]
+[ext_resource type="Script" uid="uid://dyblk6jwucc4e" path="res://scripts/top_left_hud.gd" id="9_oy073"]
 [ext_resource type="Texture2D" uid="uid://d0w20poc1oocv" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_RIGHT.png" id="10_3a5ae"]
 [ext_resource type="Texture2D" uid="uid://c68nq37wpk60d" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_LEFT.png" id="11_4pu2w"]
 [ext_resource type="Texture2D" uid="uid://em0x2aoff5in" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_UP.png" id="12_kk4lj"]
@@ -338,6 +339,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.571554, 4.958603, 19.768633
 enemy_path = NodePath("../../Predator")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1791790009]
+script = ExtResource("9_oy073")
 
 [node name="Label3D" type="Label3D" parent="CanvasLayer" unique_id=1772732288]
 
