@@ -1,5 +1,7 @@
 class_name Boid extends CharacterBody3D
 
+const BOID_GIZMO_GROUP := "boid_gizmo_roots"
+
 @export var mass = 1
 @export var force = Vector3.ZERO
 @export var acceleration = Vector3.ZERO
@@ -21,6 +23,9 @@ var neighbors = []
 var school = null
 var new_force = Vector3.ZERO
 var should_calculate = false
+
+func _enter_tree():
+	add_to_group(BOID_GIZMO_GROUP)
 
 func draw_gizmos_recursive(dg):
 	draw_gizmos = dg
