@@ -3,70 +3,53 @@
 [ext_resource type="Script" uid="uid://b5bg7qtlop6pu" path="res://scripts/leader.gd" id="1_jmkox"]
 [ext_resource type="Script" uid="uid://ji4ehh7ttjod" path="res://scripts/wander.gd" id="2_ysdg8"]
 [ext_resource type="Script" uid="uid://bwr1ykuwkyxye" path="res://scripts/behaviours/avoidance.gd" id="3_d7xpu"]
+[ext_resource type="PackedScene" uid="uid://ct3yaux8aireh" path="res://assets/models/character_models/kraken_eyeball_-_blender_file.glb" id="4_m8n2w"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_5bi3n"]
-size = Vector3(0.95, 0.95, 1.45)
+[sub_resource type="SphereShape3D" id="SphereShape3D_7j4d1"]
+radius = 0.21509606
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdg8"]
-albedo_color = Color(1, 0.12156863, 0.90588236, 1)
-metallic = 0.85
-roughness = 0.08
-emission_enabled = true
-emission = Color(1, 0.12156863, 0.90588236, 1)
-emission_energy_multiplier = 6.0
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jmkox"]
-points = PackedVector3Array(0, 0.25, 0.25, 0.25, -0.25, 0.25, 0, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
-
-[sub_resource type="PrismMesh" id="PrismMesh_glow"]
-size = Vector3(1.25, 1.25, 1.85)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glow"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-shading_mode = 0
-albedo_color = Color(1, 0.6, 0.98039216, 0.32)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jmkox"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eye"]
+lifetime_randomness = 0.22
 direction = Vector3(0, 0, -1)
-spread = 48.0
-initial_velocity_min = 0.8
-initial_velocity_max = 2.4
+spread = 34.157
+initial_velocity_min = 57.89
+initial_velocity_max = 142.09999
 gravity = Vector3(0, 0, 0)
-radial_accel_min = -0.3
-radial_accel_max = 0.5
-damping_min = 2.0
-damping_max = 4.0
-scale_min = 0.16
-scale_max = 0.34
-color = Color(1, 0.6, 0.98039216, 1)
-hue_variation_min = -0.05
-hue_variation_max = 0.07
+radial_accel_min = -85.26
+radial_accel_max = -56.84
+damping_max = 11.053
+scale_min = 11.5199995
+scale_max = 37.84
+color = Color(0.06666667, 1, 1, 1)
+hue_variation_min = -0.39000002
+hue_variation_max = 0.34999996
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4cbc"]
-transparency = 1
-blend_mode = 1
-no_depth_test = true
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.80784315, 0.98039216, 0.55)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eye"]
+albedo_color = Color(1, 0.8862745, 0, 1)
+metallic = 1.0
+roughness = 0.65
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 8.44
+ao_enabled = true
+backlight_enabled = true
+refraction_enabled = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_jmkox"]
-material = SubResource("StandardMaterial3D_m4cbc")
-radius = 0.3
-height = 0.45
+[sub_resource type="SphereMesh" id="SphereMesh_eye"]
+material = SubResource("StandardMaterial3D_eye")
+radius = 0.001
+height = 0.001
+radial_segments = 25
+rings = 6
 
-[node name="LeaderSpaceBee" type="CharacterBody3D" unique_id=181819984]
+[node name="KrakenEye" type="CharacterBody3D" unique_id=181819984]
 script = ExtResource("1_jmkox")
 draw_gizmos = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778336461]
-mesh = SubResource("PrismMesh_5bi3n")
-surface_material_override/0 = SubResource("StandardMaterial3D_ysdg8")
+[node name="Sketchfab_model" parent="." unique_id=506510699 instance=ExtResource("4_m8n2w")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1345984351]
-shape = SubResource("ConvexPolygonShape3D_jmkox")
+shape = SubResource("SphereShape3D_7j4d1")
 
 [node name="Wander" type="Node" parent="." unique_id=444020312]
 script = ExtResource("2_ysdg8")
@@ -79,18 +62,13 @@ weight = 2.5
 draw_gizmos = false
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
 
-[node name="GlowShell" type="MeshInstance3D" parent="." unique_id=95757300]
-mesh = SubResource("PrismMesh_glow")
-surface_material_override/0 = SubResource("StandardMaterial3D_glow")
+[node name="Sketchfab_model_root_GLTF_SceneRootNode_eye-kraken_1#GPUParticles3D" type="GPUParticles3D" parent="." unique_id=341517099]
+transparency = 0.28
+amount = 20
+lifetime = 2.8
+preprocess = 1.27
+randomness = 0.15
+process_material = SubResource("ParticleProcessMaterial_eye")
+draw_pass_1 = SubResource("SphereMesh_eye")
 
-[node name="Particles" type="Node3D" parent="." unique_id=487242630]
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=621390104]
-amount = 240
-lifetime = 0.72
-preprocess = 0.22
-randomness = 0.42
-fixed_fps = 120
-visibility_aabb = AABB(-6, -6, -6, 12, 12, 12)
-process_material = SubResource("ParticleProcessMaterial_jmkox")
-draw_pass_1 = SubResource("SphereMesh_jmkox")
+[editable path="Sketchfab_model"]
