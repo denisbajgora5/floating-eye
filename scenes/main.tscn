@@ -98,20 +98,12 @@ shadow_enabled = true
 [node name="floating_eye" parent="." unique_id=1348206956 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3.0931387, 44.316345)
 
-[node name="Seek" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" parent_id_path=PackedInt32Array(1348206956, 1482778280) index="3" unique_id=875401923]
-draw_gizmos = false
-
-[node name="Wander" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" parent_id_path=PackedInt32Array(1348206956, 1482778280) index="4" unique_id=995748629]
-draw_gizmos = false
-
-[node name="Avoidance" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1" parent_id_path=PackedInt32Array(1348206956, 1482778280) index="5" unique_id=1059548138]
-draw_gizmos = false
-
 [node name="leg2" parent="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs" parent_id_path=PackedInt32Array(1348206956, 516949772) index="1" unique_id=104580627]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="Path3D" parent="floating_eye" index="2" unique_id=832784099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.66716, 3.1779518, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.58367, 6.177952, -37.348278)
+debug_custom_color = Color(0, 1, 0.92156863, 1)
 
 [node name="Player" parent="." unique_id=236532492 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)
@@ -360,6 +352,7 @@ enemy_path = NodePath("../../Predator")
 
 [editable path="floating_eye"]
 [editable path="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/legs"]
+[editable path="floating_eye/Sketchfab_model/root/GLTF_SceneRootNode/eye-kraken_1/wings"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee2"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee3"]
