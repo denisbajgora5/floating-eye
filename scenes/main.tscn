@@ -110,7 +110,10 @@ draw_gizmos = false
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.780125, -0.0060310364, 0.28870383)
 
 [node name="Path3D" parent="floating_eye" index="2" unique_id=832784099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.66716, 3.1779518, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.667, 6.2, 0)
+
+[node name="PathFollow3D" parent="floating_eye/Path3D" index="0" unique_id=1194456146]
+transform = Transform3D(-0.0011606547, 0.050444096, 0.99872273, 0, 0.9987234, -0.05044413, -0.99999046, -5.854874e-05, -0.0011591833, 2.0036283, 1.0345718, 2.2485116)
 
 [node name="Player" parent="." unique_id=236532492 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6832337, 0)
