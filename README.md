@@ -158,7 +158,11 @@ abc
   The music aswell i am super proud of as it fits the game very nicely espically the background music and floating eye SFX.
 
 - **Jason:**  
-  goes here
+  I am most proud of my implementation of the behaviours of the main eyeball boid.
+  Getting FollowPath to work with the main boid in particular is something I am very proud of, as the FollowPath script as well as the path itself required lots of modifications to get fully working.
+  I am also proud of how I implemented the other behaviours such as seek, where the boid can follow a target as well as Avoidance on the main eyeball. The main eyeball moves around any object in the environment or other boids it comes into contact with.
+  I am proud of the animations I created using AnimationPlayer3D for the legs of the main boid
+  Finally I am proud of how I implemented various aspects of the environment such as the ground.
 
 ---
 
@@ -168,7 +172,7 @@ abc
   I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking proiorty.
 
 - **Jason:**  
-  goes here
+  I learned A lot about how the FollowPath and Path3D nodes work and how they can be implemented into Godot Projects. I also learned how to effectively use the  AnimationPlayer3D node to create high quality animations which can be attached to the various aspects of the character body, which is the boid in this case. I Learned how to effectively implement behaviours such as seek, arrive and avoidance and how to tweak the priorities of these behaviours to get the desired movement. I also learned how to create floors using the imported blockbits`package.
 
 ---
 
