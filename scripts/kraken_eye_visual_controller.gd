@@ -51,19 +51,19 @@ func _ready() -> void:
 		for shape in legs_root.find_children("*", "CollisionShape3D", true, false):
 			shape.disabled = true
 
+	if leg_player:
+		leg_player.play(LEG_ANIMATION)
+
 func _physics_process(_delta: float) -> void:
 	if boid == null:
 		return
 
+	if leg_player and leg_player.current_animation != StringName(LEG_ANIMATION):
+		leg_player.play(LEG_ANIMATION)
+
 	var on_floor := boid.is_on_floor()
 	if state_applied and on_floor == last_on_floor:
 		return
-
-	if leg_player:
-		if on_floor:
-			leg_player.play(LEG_ANIMATION)
-		else:
-			leg_player.stop()
 
 	if wing_player:
 		if on_floor:
