@@ -60,6 +60,8 @@ extends CharacterBody3D
 @export var ball_hold_distance : float = 1.35
 ## Small vertical offset so the held ball stays below the crosshair.
 @export var ball_hold_height : float = -0.3
+## Visual scale multiplier applied while the ball is held.
+@export var ball_held_visual_scale : float = 0.82
 ## Maximum distance for picking the ball back up.
 @export var ball_pickup_distance : float = 2.2
 ## Initial throw speed for the ball.
@@ -305,6 +307,7 @@ func _pick_up_ball() -> void:
 	ball.sleeping = false
 	ball.collision_layer = 0
 	ball.collision_mask = 0
+	ball.set_visual_scale_multiplier(ball_held_visual_scale)
 	ball.notify_picked_up(self)
 	_sync_held_ball()
 
@@ -317,6 +320,7 @@ func _throw_ball() -> void:
 
 	var throw_direction: Vector3 = -head.global_basis.z.normalized()
 	ball.global_position = hold_point.global_position + throw_direction * 0.35
+	ball.reset_visual_scale()
 	ball.freeze = false
 	ball.sleeping = false
 	ball.collision_layer = ball_collision_layer
