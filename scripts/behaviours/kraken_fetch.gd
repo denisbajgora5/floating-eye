@@ -20,6 +20,8 @@ var current_state: int = FetchState.IDLE
 var player: Node3D = null
 var ball: ThrowableBall = null
 var wander_behavior: SteeringBehavior = null
+var visual_state_controller: Node = null
+var pending_return_celebration: bool = false
 
 
 func _ready() -> void:
@@ -69,6 +71,8 @@ func _resolve_dependencies() -> void:
 
 	if wander_behavior == null:
 		wander_behavior = _resolve_wander_behavior()
+	if visual_state_controller == null and boid:
+		visual_state_controller = boid.get_node_or_null("VisualStateController")
 
 	if ball and ball.is_held_by(boid):
 		_set_state(FetchState.RETURNING)
@@ -129,11 +133,18 @@ func _set_state(new_state: int) -> void:
 
 
 func _on_ball_thrown(thrower: Node3D) -> void:
+	pending_return_celebration = false
 	if thrower == player:
 		_set_state(FetchState.FETCHING)
 
 
 func _on_ball_picked_up(holder: Node3D) -> void:
+	if holder == player and pending_return_celebration:
+		pending_return_celebration = false
+		_trigger_return_celebration()
+	elif holder != boid:
+		pending_return_celebration = false
+
 	if holder == player:
 		_set_state(FetchState.IDLE)
 	elif holder == boid:
@@ -143,6 +154,7 @@ func _on_ball_picked_up(holder: Node3D) -> void:
 
 
 func _on_ball_carried(carrier: Node3D) -> void:
+	pending_return_celebration = carrier == boid
 	_set_state(FetchState.RETURNING if carrier == boid else FetchState.IDLE)
 
 
@@ -154,6 +166,7 @@ func _grab_ball() -> void:
 	ball.sleeping = false
 	ball.collision_layer = 0
 	ball.collision_mask = 0
+	pending_return_celebration = true
 	ball.notify_carried(boid)
 	_carry_ball()
 	_set_state(FetchState.RETURNING)
@@ -177,3 +190,11 @@ func _ball_target_position() -> Vector3:
 func _player_follow_position() -> Vector3:
 	var player_basis: Basis = player.global_basis
 	return player.global_position + player_basis.x * player_follow_side_offset - player_basis.z * player_follow_back_offset + Vector3.UP * player_follow_height
+
+
+func _trigger_return_celebration() -> void:
+	if visual_state_controller == null and boid:
+		visual_state_controller = boid.get_node_or_null("VisualStateController")
+
+	if visual_state_controller and visual_state_controller.has_method("play_return_celebration"):
+		visual_state_controller.call("play_return_celebration")
