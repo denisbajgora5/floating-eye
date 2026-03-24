@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i51dasygf6xl"]
 
 [ext_resource type="Script" uid="uid://bppn73vl02y18" path="res://scripts/proto_controller.gd" id="1_qhypi"]
+[ext_resource type="PackedScene" path="res://scenes/ball.tscn" id="2_hy17m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -37,3 +38,8 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1155733302]
+
+[node name="BallHoldPoint" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -1.35)
+
+[node name="Ball" parent="." instance=ExtResource("2_hy17m")]
