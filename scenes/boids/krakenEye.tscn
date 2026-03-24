@@ -133,30 +133,6 @@ draw_gizmos = false
 [node name="legs" parent="." unique_id=591453009 instance=ExtResource("6_legs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
 
-[node name="MeshInstance3D" parent="legs/leg1" parent_id_path=PackedInt32Array(591453009, 511626828) index="0" unique_id=2046494154]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134727, 19.951117, 0.8665019)
-
-[node name="CollisionShape3D" parent="legs/leg1" parent_id_path=PackedInt32Array(591453009, 511626828) index="1" unique_id=1001480481]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134727, 19.951117, 0.8665019)
-
-[node name="MeshInstance3D" parent="legs/leg2" parent_id_path=PackedInt32Array(591453009, 104580627) index="0" unique_id=229353651]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134726, 19.951117, 0.8665019)
-
-[node name="CollisionShape3D" parent="legs/leg2" parent_id_path=PackedInt32Array(591453009, 104580627) index="1" unique_id=921028067]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134726, 19.951117, 0.8665019)
-
-[node name="MeshInstance3D" parent="legs/leg3" parent_id_path=PackedInt32Array(591453009, 1517146521) index="0" unique_id=1184663624]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134727, 19.951117, 0.8665019)
-
-[node name="CollisionShape3D" parent="legs/leg3" parent_id_path=PackedInt32Array(591453009, 1517146521) index="1" unique_id=1440017975]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134727, 19.951117, 0.8665019)
-
-[node name="MeshInstance3D" parent="legs/leg4" parent_id_path=PackedInt32Array(591453009, 1422911312) index="0" unique_id=513231750]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134723, 19.95111, 0.8665019)
-
-[node name="CollisionShape3D" parent="legs/leg4" parent_id_path=PackedInt32Array(591453009, 1422911312) index="1" unique_id=805161596]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5134723, 19.95111, 0.8665019)
-
 [node name="wings" parent="." unique_id=804070931 instance=ExtResource("7_wings")]
 transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0.13611412, 0.25863874, 0.03481722)
 
