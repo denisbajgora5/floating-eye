@@ -80,7 +80,7 @@ var ball_collision_mask : int = 0
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var hold_point := get_node_or_null("Head/BallHoldPoint") as Node3D
-@onready var ball := get_node_or_null("Ball") as RigidBody3D
+@onready var ball := get_node_or_null("Ball") as ThrowableBall
 
 func _ready() -> void:
 	check_input_mappings()
@@ -305,6 +305,7 @@ func _pick_up_ball() -> void:
 	ball.sleeping = false
 	ball.collision_layer = 0
 	ball.collision_mask = 0
+	ball.notify_picked_up(self)
 	_sync_held_ball()
 
 
@@ -314,7 +315,7 @@ func _throw_ball() -> void:
 
 	holding_ball = false
 
-	var throw_direction := -head.global_basis.z.normalized()
+	var throw_direction: Vector3 = -head.global_basis.z.normalized()
 	ball.global_position = hold_point.global_position + throw_direction * 0.35
 	ball.freeze = false
 	ball.sleeping = false
@@ -322,6 +323,7 @@ func _throw_ball() -> void:
 	ball.collision_mask = ball_collision_mask
 	ball.linear_velocity = throw_direction * ball_throw_speed + velocity
 	ball.angular_velocity = head.global_basis.x * ball_spin_speed + Vector3.UP * (ball_spin_speed * 0.35)
+	ball.notify_thrown(self)
 
 
 func _can_pick_up_ball() -> bool:
