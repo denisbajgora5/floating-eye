@@ -1,52 +1,201 @@
 [gd_scene format=3 uid="uid://8uq6ycxya2gq"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_uf2bj"]
-top_radius = 0.1
-bottom_radius = 0.1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chitin"]
+albedo_color = Color(0.08627451, 0.05882353, 0.047058824, 1)
+metallic = 0.06
+roughness = 0.78
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fopk"]
-albedo_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joint"]
+albedo_color = Color(0.1254902, 0.08627451, 0.06666667, 1)
+metallic = 0.04
+roughness = 0.7
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_l3baa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_claw"]
+albedo_color = Color(0.38039216, 0.18039216, 0.08235294, 1)
+metallic = 0.02
+roughness = 0.52
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_upper"]
+radius = 0.06
+height = 0.34
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lower"]
+radius = 0.04
+height = 0.28
+
+[sub_resource type="SphereMesh" id="SphereMesh_joint"]
+radius = 0.07
+height = 0.14
+
+[sub_resource type="PrismMesh" id="PrismMesh_claw"]
+size = Vector3(0.07, 0.045, 0.18)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_leg"]
+radius = 0.08
+height = 0.72
 
 [node name="legs" type="Node3D" unique_id=516949772]
 
 [node name="leg1" type="CharacterBody3D" parent="." unique_id=511626828]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="leg1" unique_id=2046494154]
-mesh = SubResource("CylinderMesh_uf2bj")
-surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+position = Vector3(-0.46, 2.02, 0.24)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="leg1" unique_id=1001480481]
-shape = SubResource("CylinderShape3D_l3baa")
+position = Vector3(-0.25, -0.42, 0.18)
+rotation_degrees = Vector3(16, 24, -52)
+shape = SubResource("CapsuleShape3D_leg")
+
+[node name="Hip" type="MeshInstance3D" parent="leg1"]
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="UpperLeg" type="MeshInstance3D" parent="leg1"]
+position = Vector3(-0.13, -0.18, 0.08)
+rotation_degrees = Vector3(18, 18, -42)
+mesh = SubResource("CapsuleMesh_upper")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Knee" type="MeshInstance3D" parent="leg1"]
+position = Vector3(-0.24, -0.37, 0.15)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="LowerLeg" type="MeshInstance3D" parent="leg1"]
+position = Vector3(-0.35, -0.56, 0.21)
+rotation_degrees = Vector3(30, 26, -70)
+mesh = SubResource("CapsuleMesh_lower")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Ankle" type="MeshInstance3D" parent="leg1"]
+position = Vector3(-0.45, -0.71, 0.27)
+scale = Vector3(0.85, 0.85, 0.85)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="Claw" type="MeshInstance3D" parent="leg1"]
+position = Vector3(-0.56, -0.81, 0.33)
+rotation_degrees = Vector3(18, 58, -78)
+mesh = SubResource("PrismMesh_claw")
+surface_material_override/0 = SubResource("StandardMaterial3D_claw")
 
 [node name="leg2" type="CharacterBody3D" parent="." unique_id=104580627]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.24439192, -0.0060312077, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="leg2" unique_id=229353651]
-mesh = SubResource("CylinderMesh_uf2bj")
-surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+position = Vector3(-0.5, 1.94, -0.2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="leg2" unique_id=921028067]
-shape = SubResource("CylinderShape3D_l3baa")
+position = Vector3(-0.26, -0.4, -0.16)
+rotation_degrees = Vector3(-8, -24, -54)
+shape = SubResource("CapsuleShape3D_leg")
+
+[node name="Hip" type="MeshInstance3D" parent="leg2"]
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="UpperLeg" type="MeshInstance3D" parent="leg2"]
+position = Vector3(-0.14, -0.17, -0.07)
+rotation_degrees = Vector3(-10, -18, -44)
+mesh = SubResource("CapsuleMesh_upper")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Knee" type="MeshInstance3D" parent="leg2"]
+position = Vector3(-0.27, -0.34, -0.13)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="LowerLeg" type="MeshInstance3D" parent="leg2"]
+position = Vector3(-0.4, -0.52, -0.19)
+rotation_degrees = Vector3(-22, -28, -74)
+mesh = SubResource("CapsuleMesh_lower")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Ankle" type="MeshInstance3D" parent="leg2"]
+position = Vector3(-0.52, -0.66, -0.24)
+scale = Vector3(0.85, 0.85, 0.85)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="Claw" type="MeshInstance3D" parent="leg2"]
+position = Vector3(-0.64, -0.74, -0.3)
+rotation_degrees = Vector3(10, -54, -82)
+mesh = SubResource("PrismMesh_claw")
+surface_material_override/0 = SubResource("StandardMaterial3D_claw")
 
 [node name="leg3" type="CharacterBody3D" parent="." unique_id=1517146521]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.11833477, 0.040647343, 1.4901161e-08)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="leg3" unique_id=1184663624]
-mesh = SubResource("CylinderMesh_uf2bj")
-surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+position = Vector3(0.46, 2.02, 0.24)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="leg3" unique_id=1440017975]
-shape = SubResource("CylinderShape3D_l3baa")
+position = Vector3(0.25, -0.42, 0.18)
+rotation_degrees = Vector3(16, -24, 52)
+shape = SubResource("CapsuleShape3D_leg")
+
+[node name="Hip" type="MeshInstance3D" parent="leg3"]
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="UpperLeg" type="MeshInstance3D" parent="leg3"]
+position = Vector3(0.13, -0.18, 0.08)
+rotation_degrees = Vector3(18, -18, 42)
+mesh = SubResource("CapsuleMesh_upper")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Knee" type="MeshInstance3D" parent="leg3"]
+position = Vector3(0.24, -0.37, 0.15)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="LowerLeg" type="MeshInstance3D" parent="leg3"]
+position = Vector3(0.35, -0.56, 0.21)
+rotation_degrees = Vector3(30, -26, 70)
+mesh = SubResource("CapsuleMesh_lower")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Ankle" type="MeshInstance3D" parent="leg3"]
+position = Vector3(0.45, -0.71, 0.27)
+scale = Vector3(0.85, 0.85, 0.85)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="Claw" type="MeshInstance3D" parent="leg3"]
+position = Vector3(0.56, -0.81, 0.33)
+rotation_degrees = Vector3(18, -58, 78)
+mesh = SubResource("PrismMesh_claw")
+surface_material_override/0 = SubResource("StandardMaterial3D_claw")
 
 [node name="leg4" type="CharacterBody3D" parent="." unique_id=1422911312]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.3150314, -0.068065256, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="leg4" unique_id=513231750]
-mesh = SubResource("CylinderMesh_uf2bj")
-surface_material_override/0 = SubResource("StandardMaterial3D_5fopk")
+position = Vector3(0.5, 1.94, -0.2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="leg4" unique_id=805161596]
-shape = SubResource("CylinderShape3D_l3baa")
+position = Vector3(0.26, -0.4, -0.16)
+rotation_degrees = Vector3(-8, 24, 54)
+shape = SubResource("CapsuleShape3D_leg")
+
+[node name="Hip" type="MeshInstance3D" parent="leg4"]
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="UpperLeg" type="MeshInstance3D" parent="leg4"]
+position = Vector3(0.14, -0.17, -0.07)
+rotation_degrees = Vector3(-10, 18, 44)
+mesh = SubResource("CapsuleMesh_upper")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Knee" type="MeshInstance3D" parent="leg4"]
+position = Vector3(0.27, -0.34, -0.13)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="LowerLeg" type="MeshInstance3D" parent="leg4"]
+position = Vector3(0.4, -0.52, -0.19)
+rotation_degrees = Vector3(-22, 28, 74)
+mesh = SubResource("CapsuleMesh_lower")
+surface_material_override/0 = SubResource("StandardMaterial3D_chitin")
+
+[node name="Ankle" type="MeshInstance3D" parent="leg4"]
+position = Vector3(0.52, -0.66, -0.24)
+scale = Vector3(0.85, 0.85, 0.85)
+mesh = SubResource("SphereMesh_joint")
+surface_material_override/0 = SubResource("StandardMaterial3D_joint")
+
+[node name="Claw" type="MeshInstance3D" parent="leg4"]
+position = Vector3(0.64, -0.74, -0.3)
+rotation_degrees = Vector3(10, 54, 82)
+mesh = SubResource("PrismMesh_claw")
+surface_material_override/0 = SubResource("StandardMaterial3D_claw")
