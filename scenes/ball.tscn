@@ -1,5 +1,7 @@
 [gd_scene format=3]
 
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_6q5qk"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwyjn"]
 albedo_color = Color(0.943959, 0.232983, 0.174854, 1)
 roughness = 0.36
@@ -16,6 +18,7 @@ friction = 0.6
 radius = 0.23
 
 [node name="Ball" type="RigidBody3D"]
+script = ExtResource("1_6q5qk")
 top_level = true
 continuous_cd = true
 freeze = true

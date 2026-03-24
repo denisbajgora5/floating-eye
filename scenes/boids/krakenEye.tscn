@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8uq6ycxya2gq" path="res://legs.tscn" id="6_legs"]
 [ext_resource type="PackedScene" path="res://scenes/wings.tscn" id="7_wings"]
 [ext_resource type="Script" uid="uid://d3hrntd3ihfjh" path="res://scripts/kraken_eye_visual_controller.gd" id="8_state"]
+[ext_resource type="Script" path="res://scripts/behaviours/kraken_fetch.gd" id="9_fetch"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7j4d1"]
 radius = 0.75192434
@@ -123,6 +124,11 @@ script = ExtResource("3_d7xpu")
 weight = 2.5
 draw_gizmos = false
 metadata/_custom_type_script = "uid://bwr1ykuwkyxye"
+
+[node name="KrakenFetch" type="Node" parent="."]
+script = ExtResource("9_fetch")
+weight = 1.6
+draw_gizmos = false
 
 [node name="legs" parent="." unique_id=591453009 instance=ExtResource("6_legs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13327894, -2.6240892, 0)
