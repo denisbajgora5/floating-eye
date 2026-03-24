@@ -2,13 +2,64 @@
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_6q5qk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwyjn"]
-albedo_color = Color(0.943959, 0.232983, 0.174854, 1)
-roughness = 0.36
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ball"]
+albedo_color = Color(1, 0.12156863, 0.90588236, 1)
+metallic = 0.2
+roughness = 0.08
+emission_enabled = true
+emission = Color(1, 0.12156863, 0.90588236, 1)
+emission_energy_multiplier = 5.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqaf8"]
 radius = 0.23
 height = 0.46
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ball_glow"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 0.6431373, 0.9529412, 0.24)
+emission_enabled = true
+emission = Color(1, 0.427451, 0.8980392, 1)
+emission_energy_multiplier = 3.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_ball_glow"]
+radius = 0.29
+height = 0.58
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ball"]
+lifetime_randomness = 0.2
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 0.45
+initial_velocity_max = 1.35
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -0.05
+radial_accel_max = 0.35
+damping_min = 1.5
+damping_max = 3.0
+scale_min = 0.04
+scale_max = 0.12
+color = Color(1, 0.6431373, 0.9529412, 1)
+hue_variation_min = -0.03
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ball_particle"]
+transparency = 1
+blend_mode = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.8392157, 0.96862745, 0.55)
+emission_enabled = true
+emission = Color(1, 0.47058824, 0.8901961, 1)
+emission_energy_multiplier = 2.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_ball_particle"]
+material = SubResource("StandardMaterial3D_ball_particle")
+radius = 0.06
+height = 0.12
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y3wa0"]
 bounce = 0.55
@@ -29,6 +80,24 @@ angular_damp = 0.05
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hmd4q")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_gwyjn")
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals"]
+material_override = SubResource("StandardMaterial3D_ball")
 mesh = SubResource("SphereMesh_aqaf8")
+
+[node name="GlowShell" type="MeshInstance3D" parent="Visuals"]
+cast_shadow = 0
+material_override = SubResource("StandardMaterial3D_ball_glow")
+mesh = SubResource("SphereMesh_ball_glow")
+
+[node name="Particles" type="GPUParticles3D" parent="Visuals"]
+amount = 90
+lifetime = 0.85
+preprocess = 0.2
+randomness = 0.45
+fixed_fps = 120
+local_coords = false
+visibility_aabb = AABB(-3, -3, -3, 6, 6, 6)
+process_material = SubResource("ParticleProcessMaterial_ball")
+draw_pass_1 = SubResource("SphereMesh_ball_particle")
