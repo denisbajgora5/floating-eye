@@ -50,22 +50,44 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to pick up or throw the ball.
+@export var input_throw_ball : String = "throw_ball"
+
+@export_group("Ball")
+## Can the player carry and throw the ball?
+@export var can_throw_ball : bool = true
+## How far in front of the camera the ball is held.
+@export var ball_hold_distance : float = 1.35
+## Small vertical offset so the held ball stays below the crosshair.
+@export var ball_hold_height : float = -0.3
+## Maximum distance for picking the ball back up.
+@export var ball_pickup_distance : float = 2.2
+## Initial throw speed for the ball.
+@export var ball_throw_speed : float = 18.0
+## Spin applied when the ball is thrown.
+@export var ball_spin_speed : float = 10.0
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 var respawn_position : Vector3 = Vector3.ZERO
+var holding_ball : bool = false
+var ball_collision_layer : int = 0
+var ball_collision_mask : int = 0
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var hold_point := get_node_or_null("Head/BallHoldPoint") as Node3D
+@onready var ball := get_node_or_null("Ball") as RigidBody3D
 
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 	_configure_respawn_position()
+	_configure_ball()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -96,6 +118,7 @@ func _physics_process(delta: float) -> void:
 		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		motion *= freefly_speed * delta
 		move_and_collide(motion)
+		_update_ball_state()
 		return
 	
 	# Apply gravity to velocity
@@ -130,6 +153,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+
+	_update_ball_state()
 
 	if _should_reset_after_fall():
 		_reset_after_fall()
@@ -166,6 +191,22 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+
+
+func _configure_ball() -> void:
+	if not can_throw_ball:
+		return
+
+	if hold_point == null or ball == null:
+		push_error("Ball disabled. Missing Ball or Head/BallHoldPoint on the player scene.")
+		can_throw_ball = false
+		return
+
+	hold_point.position = Vector3(0.0, ball_hold_height, -ball_hold_distance)
+	ball.top_level = true
+	ball_collision_layer = ball.collision_layer
+	ball_collision_mask = ball.collision_mask
+	_pick_up_ball()
 
 
 func _configure_respawn_position() -> void:
@@ -225,6 +266,76 @@ func _should_reset_after_fall() -> bool:
 func _reset_after_fall() -> void:
 	global_position = respawn_position
 	velocity = Vector3.ZERO
+	if holding_ball:
+		_sync_held_ball()
+
+
+func _update_ball_state() -> void:
+	if not can_throw_ball or ball == null or hold_point == null:
+		return
+
+	if Input.is_action_just_pressed(input_throw_ball):
+		if holding_ball:
+			_throw_ball()
+		elif _can_pick_up_ball():
+			_pick_up_ball()
+
+	if holding_ball:
+		_sync_held_ball()
+	elif _ball_is_lost():
+		_pick_up_ball()
+
+
+func _sync_held_ball() -> void:
+	if ball == null or hold_point == null:
+		return
+
+	ball.global_position = hold_point.global_position
+	ball.global_basis = Basis.IDENTITY
+	ball.linear_velocity = Vector3.ZERO
+	ball.angular_velocity = Vector3.ZERO
+
+
+func _pick_up_ball() -> void:
+	if ball == null:
+		return
+
+	holding_ball = true
+	ball.freeze = true
+	ball.sleeping = false
+	ball.collision_layer = 0
+	ball.collision_mask = 0
+	_sync_held_ball()
+
+
+func _throw_ball() -> void:
+	if ball == null or hold_point == null:
+		return
+
+	holding_ball = false
+
+	var throw_direction := -head.global_basis.z.normalized()
+	ball.global_position = hold_point.global_position + throw_direction * 0.35
+	ball.freeze = false
+	ball.sleeping = false
+	ball.collision_layer = ball_collision_layer
+	ball.collision_mask = ball_collision_mask
+	ball.linear_velocity = throw_direction * ball_throw_speed + velocity
+	ball.angular_velocity = head.global_basis.x * ball_spin_speed + Vector3.UP * (ball_spin_speed * 0.35)
+
+
+func _can_pick_up_ball() -> bool:
+	if ball == null or hold_point == null:
+		return false
+
+	return ball.global_position.distance_to(hold_point.global_position) <= ball_pickup_distance
+
+
+func _ball_is_lost() -> bool:
+	if ball == null:
+		return false
+
+	return ball.global_position.y <= respawn_position.y - fall_reset_distance - 10.0
 
 
 ## Checks if some Input Actions haven't been created.
@@ -251,3 +362,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+	if can_throw_ball and not InputMap.has_action(input_throw_ball):
+		push_error("Ball throwing disabled. No InputAction found for input_throw_ball: " + input_throw_ball)
+		can_throw_ball = false
