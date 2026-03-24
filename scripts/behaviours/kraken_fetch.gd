@@ -6,7 +6,7 @@ enum FetchState { IDLE, FETCHING, RETURNING }
 @export var player_path: NodePath
 @export var ball_path: NodePath
 @export var wander_behavior_path: NodePath = NodePath("../Wander")
-@export var grab_distance: float = 2.0
+@export var grab_distance: float = 4.0
 @export var ball_arrive_radius: float = 7.5
 @export var player_arrive_radius: float = 9.0
 @export var player_follow_height: float = 3.0
@@ -14,7 +14,7 @@ enum FetchState { IDLE, FETCHING, RETURNING }
 @export var player_follow_back_offset: float = 1.1
 @export var carried_ball_forward_offset: float = 0.7
 @export var carried_ball_down_offset: float = 1.25
-@export var ball_chase_height_offset: float = 0.35
+@export var ball_chase_height_offset: float = 0.0
 
 var current_state: int = FetchState.IDLE
 var player: Node3D = null
