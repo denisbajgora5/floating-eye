@@ -67,9 +67,13 @@ Image 2: Leader and follower boid screenshots
 
 Image 3: Predator and Prey boid screenshots
 
-![krakenEye](./images/krakenEye.png)
+![krakenEye](./images/kraken_boid.png)
 
 Image 4: Image of the main Kraken Eye boid
+
+![ball](./images/ball.png)
+
+Image 5: Image of the ball that the user throws.
 
 ---
 
