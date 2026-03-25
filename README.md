@@ -13,11 +13,7 @@ The main autonomous agent (boid) is a **floating eyeball with wings and legs**.
 - Avoids obstacles such as:
   - Trees
   - Rocks
-- Lands and transitions into crawling behavior
-- Crawls along:
-  - Ground
-  - Walls
-  - Environmental objects
+- Eyeball picks up the ball that the user throws in the environment
 
 ### Audio Interaction
 
