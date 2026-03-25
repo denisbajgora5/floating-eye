@@ -83,6 +83,7 @@ Image 4: Image of the main Kraken Eye boid
 4. Use `WASD` or the Arrow Keys to move, `Space` to jump, and `Shift` to sprint.
 5. Press `` ` `` to toggle freefly mode.
 6. Press `G` to toggle steering gizmos and `H` to toggle the floating eye path display.
+7. press E to throw and pick up the ball.
 
 ---
 
@@ -114,7 +115,12 @@ Image 4: Image of the main Kraken Eye boid
 
 - **`scripts/eye_kraken_1.gd` and `scripts/kraken_eye_visual_controller.gd`**  
   Control the main Kraken eye boid and its presentation. These scripts update the debug label, drive movement using steering forces, play leg animations when grounded, and flap the wings while airborne.
-
+  
+- **`scripts/top_left_hud.gd`**
+  Controls the top left corner of the UI. It sets the text to be a particular font size and color aswell as font type.
+  
+- **`scripts/fps.gd`**
+  - displays the current frames per second.
 ---
 
 ## 📦 Classes & Assets
@@ -201,7 +207,7 @@ Image 4: Image of the main Kraken Eye boid
   I am most proud of my implementation of the behaviours of the main eyeball boid.
   Getting FollowPath to work with the main boid in particular is something I am very proud of, as the FollowPath script as well as the path itself required lots of modifications to get fully working.
   I am also proud of how I implemented the other behaviours such as seek, where the boid can follow a target as well as Avoidance on the main eyeball. The main eyeball moves around any object in the environment or other boids it comes into contact with.
-  I am proud of the animations I created using AnimationPlayer3D for the legs of the main boid
+  I am proud of the animations I created using AnimationPlayer3D for the legs of the main boid. I am also proud of the Particle effect used on the main boid through GPUParticles3D node.
   Finally I am proud of how I implemented various aspects of the environment such as the ground.
 
 ---
@@ -209,7 +215,7 @@ Image 4: Image of the main Kraken Eye boid
 ## 📖 What We Learned
 
 - **Denis:**  
-  I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking proiorty.
+  I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking priority.
 
 - **Jason:**  
   I learned A lot about how the FollowPath and Path3D nodes work and how they can be implemented into Godot Projects. I also learned how to effectively use the  AnimationPlayer3D node to create high quality animations which can be attached to the various aspects of the character body, which is the boid in this case. I Learned how to effectively implement behaviours such as seek, arrive and avoidance and how to tweak the priorities of these behaviours to get the desired movement. I also learned how to create floors using the imported blockbits`package.
@@ -336,8 +342,10 @@ The following Godot nodes and systems will be used:
 
 - **AnimationPlayer**  
   → For animations such as:
-  - Crawling
   - Wing fluttering
+ 
+  - **GPUParticles3D**
+    - used for adding a particle effect to the main boid and the background follower and leader boids
 
 ---
 
