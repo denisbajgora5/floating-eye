@@ -31,6 +31,15 @@ const WING_PLAYER_PATHS := [
 @export var backflip_wing_speed_scale: float = 3.0
 @export var backflip_leg_speed_scale: float = 1.9
 
+@export_group("Proximity Flash")
+@export var player_path: NodePath
+@export_range(1.0, 40.0, 0.1) var proximity_flash_distance: float = 11.0
+@export_range(0.1, 8.0, 0.1) var proximity_flash_pulse_speed: float = 2.1
+@export var proximity_flash_color: Color = Color(1.0, 0.45, 0.12, 1.0)
+@export_range(0.0, 3.0, 0.05) var proximity_flash_emission_boost: float = 0.8
+@export_range(0.0, 1.5, 0.05) var proximity_flash_particle_boost: float = 0.2
+@export_range(0.0, 1.0, 0.05) var proximity_flash_particle_tint_strength: float = 0.9
+
 @onready var boid := get_parent() as CharacterBody3D
 @onready var model_root := _find_node(MODEL_ROOT_PATHS) as Node3D
 @onready var eye_root := boid.get_node_or_null(EYE_ROOT_PATH) as Node3D
@@ -46,6 +55,19 @@ var flip_root_base_position: Vector3 = Vector3.ZERO
 var flip_root_base_rotation: Vector3 = Vector3.ZERO
 var legs_root_base_rotation: Vector3 = Vector3.ZERO
 var wings_root_base_rotation: Vector3 = Vector3.ZERO
+var player: Node3D = null
+var proximity_flash_phase: float = 0.0
+var eye_flash_materials: Array[BaseMaterial3D] = []
+var eye_flash_base_emission_enabled: Array[bool] = []
+var eye_flash_base_emission_colors: Array[Color] = []
+var eye_flash_base_emission_energies: Array[float] = []
+var flash_particles: GPUParticles3D = null
+var flash_particle_process_material: ParticleProcessMaterial = null
+var flash_particle_draw_material: BaseMaterial3D = null
+var flash_particle_base_color: Color = Color.WHITE
+var flash_particle_base_albedo: Color = Color.WHITE
+var flash_particle_base_emission: Color = Color.BLACK
+var flash_particle_base_emission_energy: float = 0.0
 
 func _find_node(paths: Array) -> Node:
 	for path in paths:
@@ -55,6 +77,9 @@ func _find_node(paths: Array) -> Node:
 	return null
 
 func _ready() -> void:
+	_cache_proximity_flash_visuals()
+	_resolve_player()
+
 	if eye_root:
 		if legs_root and legs_root.get_parent() != eye_root:
 			legs_root.reparent(eye_root, false)
@@ -72,6 +97,127 @@ func _ready() -> void:
 
 	if leg_player:
 		leg_player.play(LEG_ANIMATION)
+
+func _cache_proximity_flash_visuals() -> void:
+	_cache_eye_flash_materials()
+	_cache_flash_particles()
+
+func _cache_eye_flash_materials() -> void:
+	if eye_root == null:
+		return
+
+	if eye_root is MeshInstance3D:
+		_cache_mesh_flash_materials(eye_root as MeshInstance3D)
+
+	for mesh_node in eye_root.find_children("*", "MeshInstance3D", true, false):
+		_cache_mesh_flash_materials(mesh_node as MeshInstance3D)
+
+func _cache_mesh_flash_materials(mesh_instance: MeshInstance3D) -> void:
+	if mesh_instance == null or mesh_instance.mesh == null:
+		return
+
+	for surface_idx in mesh_instance.mesh.get_surface_count():
+		var source_material := mesh_instance.get_active_material(surface_idx)
+		if source_material is BaseMaterial3D:
+			var flash_material := (source_material as BaseMaterial3D).duplicate() as BaseMaterial3D
+			mesh_instance.set_surface_override_material(surface_idx, flash_material)
+			eye_flash_materials.append(flash_material)
+			eye_flash_base_emission_enabled.append(flash_material.emission_enabled)
+			eye_flash_base_emission_colors.append(flash_material.emission)
+			eye_flash_base_emission_energies.append(flash_material.emission_energy_multiplier)
+
+func _cache_flash_particles() -> void:
+	for child in boid.get_children():
+		if child is GPUParticles3D:
+			flash_particles = child as GPUParticles3D
+			break
+
+	if flash_particles == null:
+		return
+
+	if flash_particles.process_material is ParticleProcessMaterial:
+		flash_particle_process_material = (flash_particles.process_material as ParticleProcessMaterial).duplicate() as ParticleProcessMaterial
+		flash_particles.process_material = flash_particle_process_material
+		flash_particle_base_color = flash_particle_process_material.color
+
+	if flash_particles.draw_pass_1 is PrimitiveMesh:
+		var particle_mesh := (flash_particles.draw_pass_1 as PrimitiveMesh).duplicate() as PrimitiveMesh
+		flash_particles.draw_pass_1 = particle_mesh
+		if particle_mesh.material is BaseMaterial3D:
+			flash_particle_draw_material = (particle_mesh.material as BaseMaterial3D).duplicate() as BaseMaterial3D
+			particle_mesh.material = flash_particle_draw_material
+			flash_particle_base_albedo = flash_particle_draw_material.albedo_color
+			flash_particle_base_emission = flash_particle_draw_material.emission
+			flash_particle_base_emission_energy = flash_particle_draw_material.emission_energy_multiplier
+
+func _resolve_player() -> void:
+	if player != null and is_instance_valid(player):
+		return
+
+	player = null
+
+	if not player_path.is_empty():
+		player = get_node_or_null(player_path) as Node3D
+		if player:
+			return
+
+	var current_scene := get_tree().current_scene
+	if current_scene:
+		player = current_scene.find_child("Player", true, false) as Node3D
+
+func _flash_origin() -> Vector3:
+	if eye_root:
+		return eye_root.global_position
+	return boid.global_position
+
+func _update_proximity_flash(delta: float) -> void:
+	if proximity_flash_distance <= 0.0:
+		_apply_proximity_flash(0.0)
+		return
+
+	if player == null or not is_instance_valid(player):
+		_resolve_player()
+
+	proximity_flash_phase = wrapf(proximity_flash_phase + delta * proximity_flash_pulse_speed * TAU, 0.0, TAU)
+
+	var flash_strength := 0.0
+	if player:
+		var distance_to_player := _flash_origin().distance_to(player.global_position)
+		var proximity := clamp(1.0 - (distance_to_player / proximity_flash_distance), 0.0, 1.0)
+		proximity = proximity * proximity * (3.0 - 2.0 * proximity)
+		var pulse := 0.45 + 0.55 * (0.5 + 0.5 * sin(proximity_flash_phase))
+		flash_strength = proximity * pulse
+
+	_apply_proximity_flash(flash_strength)
+
+func _apply_proximity_flash(strength: float) -> void:
+	for idx in eye_flash_materials.size():
+		var material := eye_flash_materials[idx]
+		var base_color := eye_flash_base_emission_colors[idx]
+		material.emission_enabled = eye_flash_base_emission_enabled[idx] or strength > 0.001
+		material.emission = base_color.lerp(proximity_flash_color, strength)
+		material.emission_energy_multiplier = eye_flash_base_emission_energies[idx] + strength * proximity_flash_emission_boost
+
+	if flash_particle_process_material:
+		flash_particle_process_material.color = flash_particle_base_color.lerp(
+			proximity_flash_color,
+			strength * proximity_flash_particle_tint_strength
+		)
+
+	if flash_particle_draw_material:
+		flash_particle_draw_material.emission_enabled = true
+		flash_particle_draw_material.albedo_color = flash_particle_base_albedo.lerp(
+			proximity_flash_color.lightened(0.08),
+			strength * 0.55
+		)
+		flash_particle_draw_material.emission = flash_particle_base_emission.lerp(
+			proximity_flash_color,
+			strength * proximity_flash_particle_tint_strength
+		)
+		flash_particle_draw_material.emission_energy_multiplier = (
+			flash_particle_base_emission_energy
+			+ strength * proximity_flash_particle_boost
+		)
 
 func _get_flip_root() -> Node3D:
 	if model_root:
@@ -127,6 +273,8 @@ func _apply_backflip_pose() -> void:
 func _physics_process(_delta: float) -> void:
 	if boid == null:
 		return
+
+	_update_proximity_flash(_delta)
 
 	var backflipping: bool = backflip_time_left > 0.0
 	if backflipping:
