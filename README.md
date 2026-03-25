@@ -4,7 +4,7 @@
 
 The game is set in a **space environment** featuring a floating island on a desolate planet named **EB-2**.
 
-The main autonomous agent (boid) is a **floating eyeball with wings and legs**.
+The main autonomous agent (boid) is a **floating eyeball with wings and legs** called Kraken.
 
 ### Eyeball Behavior
 
