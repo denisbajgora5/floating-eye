@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dt3vohldl5xn6" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_FRONT.png" id="14_3ivw4"]
 [ext_resource type="PackedScene" uid="uid://k37lutwho1kj" path="res://scenes/boids/krakenEye.tscn" id="14_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://bi1j6vd5b3oy3" path="res://assets/skybox/nebula/jettelly_space_nebulas_blue_BACK.png" id="15_sibmn"]
+[ext_resource type="PackedScene" uid="uid://byersijr0cnkn" path="res://scenes/floating_eye.tscn" id="16_jbj1t"]
 
 [sub_resource type="Shader" id="Shader_y7h4u"]
 code = "shader_type sky;
@@ -345,6 +346,9 @@ script = ExtResource("9_oy073")
 
 [node name="KrakenEye" parent="." unique_id=1473132701 instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.916077, 0)
+
+[node name="floating_eye" parent="." unique_id=1080516817 instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5575314, -3.9987335, 22.23742)
 
 [editable path="SpaceBees/Group-1/FollowerSpaceBee"]
 [editable path="SpaceBees/Group-1/FollowerSpaceBee2"]
