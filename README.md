@@ -206,7 +206,7 @@ Image 5: Image of the ball that the user throws.
   I am really proud of the way the map turned out it fits really nicely with the sky box.
   The way the boids are neon like and have particles i am super proud of as it makes them glow really nicely in the sky.
   I Am also proud of the way i designed the colors of the map and boids the way it looks like an alien planet.
-  The music aswell i am super proud of as it fits the game very nicely espically the background music and floating eye SFX.
+  The music aswell i am super proud of as it fits the game very nicely espically the background music and floating eye SFX. I am also proud of the ball bouncing physics i implemented using RigidBody3D and the throwing mechanic and having the kraken eye catching the ball and bringing it back to the player. 
 
 - **Jason:**  
   I am most proud of my implementation of the behaviours of the main eyeball boid.
@@ -220,7 +220,7 @@ Image 5: Image of the ball that the user throws.
 ## 📖 What We Learned
 
 - **Denis:**  
-  I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking priority.
+  I learnt more about Gridmap how to use it how to use mesh library importing models from a online source. How to use buses to control different sound enviorments. I learnt about wandering, seek, how to animate wingss for the eye. I learnt how seperation, cohension and alignement work along with avoidance. Also, i learnt how the weights work together if a weight is too small it could lead to it other weights taking priority. I learnt how to work with rigidBodies and implement a system where the kraken eye knows where the player is and brings the ball back to the player while performing it's other automonous behaviour like avoidance. 
 
 - **Jason:**  
   I learned A lot about how the FollowPath and Path3D nodes work and how they can be implemented into Godot Projects. I also learned how to effectively use the  AnimationPlayer3D node to create high quality animations which can be attached to the various aspects of the character body, which is the boid in this case. I Learned how to effectively implement behaviours such as seek, arrive and avoidance and how to tweak the priorities of these behaviours to get the desired movement. I also learned how to create floors using the imported blockbits`package.
